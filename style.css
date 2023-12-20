@@ -55,78 +55,56 @@ body, html {
     align-items: center;
   }
   
-  .main-content {
-    margin-left: 300px;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: #f4f7f6; /* Background color for the main content */
-  }
-  
-  /* Add responsive adjustments for mobile sizes if necessary */
-  @media (max-width: 768px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-  
-    .main-content {
-      margin-left: 0;
-    }
-  }
+  /* Ajustes previos al .sidebar y body */
 
-  .card-section {
+.main-content {
+    margin-left: 300px; /* Ajusta esto si cambias el ancho del sidebar */
+    padding: 20px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* crea 4 columnas */
-    grid-auto-rows: minmax(100px, auto); /* altura mínima para las filas */
-    gap: 20px;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 20px;
+    align-items: start;
   }
   
   .card {
-    background-color: #fff; /* color de fondo para las cards */
-    border-radius: 10px; /* bordes redondeados */
-    padding: 15px; /* espacio interior */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
   }
   
-  .card.horizontal {
-    grid-column: span 4; /* abarca 4 columnas */
-    height: 200px; /* altura fija */
-  }
-  
-  .card.small {
-    grid-column: span 2; /* abarca 2 columnas */
-    height: 200px; /* altura fija */
-  }
-  
+  /* Grandes horizontales */
   .card.large {
-    grid-column: span 4; /* abarca 4 columnas */
-    height: 400px; /* altura fija */
+    grid-column: span 12;
+    height: 474px; /* Ajusta esto según tus necesidades */
   }
   
-  @media (max-width: 900px) {
-    .card-section {
-      grid-template-columns: repeat(2, 1fr); /* crea 2 columnas para pantallas más pequeñas */
+  /* Pequeñas cuadradas */
+  .card.small {
+    grid-column: span 6;
+    height: 237px; /* La mitad de la altura de las grandes horizontales */
+  }
+  
+  /* Ajustes de respuesta */
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0;
+      grid-template-columns: repeat(6, 1fr);
     }
   
-    .card.horizontal, .card.large {
-      grid-column: span 2; /* abarca 2 columnas en pantallas más pequeñas */
-    }
-  
-    .card.small {
-      grid-column: span 1; /* abarca 1 columna en pantallas más pequeñas */
+    .card.large, .card.small {
+      grid-column: span 6;
     }
   }
   
-  @media (max-width: 600px) {
-    .card-section {
-      grid-template-columns: 1fr; /* crea 1 columna para pantallas más pequeñas */
+  @media (max-width: 480px) {
+    .main-content {
+      grid-template-columns: repeat(4, 1fr);
     }
   
-    .card {
-      grid-column: 1 / -1; /* abarca toda la columna disponible */
+    .card.large, .card.small {
+      grid-column: span 4;
     }
   }
