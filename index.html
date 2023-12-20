@@ -5,38 +5,75 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 	<title>TRUE LOVE CREATIVE</title>
 </head>
 
-<body>
+<body class="light-mode">
 
 	<div class="container">
 
-		<div class="sideBar">
+		<div class="sidebar">
 
-			<img src="logo.png" alt="Logo">
+			<img src="images/logo.png" alt="Logo">
 
 			<h1>TRUE LOVE CREATIVE</h1>
 
 			<p>If you can dream it, you can have it.</p>
 
-			<div class="social">
+			<div class="menu">
+				<a href="#">HOME</a>
+				<a href="#">SERVICES</a>
+				<a href="#">PORTFOLIO</a>
+				<a href="#">ABOUT US</a>
+				<a href="#">CONTACT</a>
+			</div>
 
+			<div class="social">
+				<a href="#" class="fab fa-facebook-f"></a>
+				<a href="#" class="fab fa-twitter"></a>
+				<a href="#" class="fab fa-instagram"></a>
 			</div>
 
 			<div class="mode">
-
+				<div class="mode-toggle">
+					<i class="fas fa-moon"></i>
+					<div class="toggle-switch" onclick="toggleMode()"></div>
+				</div>
 			</div>
 
 		</div>
 
 		<div class="mainContent">
+			<!-- Example cards -->
+			<div class="card small">PROBANDO</div>
+			<div class="card small"></div>
+			<div class="card large">
 
+			</div>
+			<div class="card horizontal">
 
+				<div class="icons">
+					<img src="images/code.png">
+				</div>
 
+				<div class="icons">
+					<img src="images/design.png">
+				</div>
+
+				<div class="icons">
+					<img src="images/photo.png">
+				</div>
+
+			</div>
+			<div class="card small"></div>
+			<div class="card small"></div>
 		</div>
 
 	</div>
+
+	<script src="script.js"></script>
 
 </body>
 
