@@ -1,3 +1,21 @@
+[data-theme="dark"] {
+    background-color: #1c1c1c;
+    color: white;
+  }
+  
+  [data-theme="dark"] .sidebar {
+    background: #262626;
+  }
+  
+  [data-theme="dark"] .card {
+    background: #333;
+  }
+  
+  [data-theme="dark"] .social-icons i {
+    background: white;
+    color: black;
+  }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
