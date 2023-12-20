@@ -3,29 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Design</title>
+<title>Responsive Layout</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="sidebar">
-  <!-- Sidebar content here -->
-  <div class="profile-container">
-    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-    <h1>TRUE LOVE CREATIVE</h1>
-    <p>IF YOU CAN DREAM IT YOU CAN HAVE IT</p>
-    </div>
-  
-  <!-- Social Icons -->
+  <!-- Logo -->
+  <img src="logo.png" alt="Logo" class="logo">
+  <!-- Texto y título -->
+  <h1>Batuhan Bilgin</h1>
+  <p>Developer & Creator</p>
+  <p>Building AI products and creating video tutorials on Youtube.</p>
+  <!-- Iconos sociales -->
   <div class="social-icons">
-    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
-    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+    <a href="#" class="icon-link"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="icon-link"><i class="fab fa-discord"></i></a>
+    <a href="#" class="icon-link"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="icon-link"><i class="fab fa-github"></i></a>
   </div>
-  
-  <!-- Dark Mode Toggle -->
+  <!-- Toggle modo oscuro/claro -->
   <div class="dark-mode-toggle">
     <i class="fas fa-sun"></i>
     <label class="switch">
@@ -36,27 +34,20 @@
   </div>
 </div>
 
-<!-- Main Content con las cards -->
 <div class="main-content">
-    <!-- Card grande horizontal -->
-    <div class="card large" style="background-image: url('tu-imagen.jpg');">
-      <!-- Contenido de la card -->
-    </div>
-  
-    <!-- Card cuadrada pequeña -->
-    <div class="card small" style="background-image: url('tu-imagen.jpg');">
-      <!-- Contenido de la card -->
-    </div>
-    <div class="card small" style="background-image: url('tu-imagen.jpg');">
-      <!-- Contenido de la card -->
-    </div>
-  
-    <!-- Card cuadrada grande -->
-    <div class="card large" style="background-image: url('tu-imagen.jpg');">
-      <!-- Contenido de la card -->
-    </div>
+  <!-- Tarjetas con contenido -->
+  <!-- Primera columna -->
+  <div class="column">
+    <div class="card large"></div>
+    <div class="card small"></div>
+    <div class="card small"></div>
   </div>
-
+  <!-- Segunda columna -->
+  <div class="column">
+    <div class="card large"></div>
+    <div class="card small"></div>
+    <div class="card small"></div>
+  </div>
 </div>
 
 <script src="dark-mode.js"></script>
