@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño Responsivo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    display: flex;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .sidebar {
+    width: 300px;
+    background: #333;
+    color: white;
+    padding: 20px;
+  }
+
+  .main-content {
+    flex-grow: 1;
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    padding: 20px;
+  }
+
+  .card {
+    background: #f0f0f0;
+    aspect-ratio: 1;
+  }
+
+  .card.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .sidebar h1,
+  .sidebar menu,
+  .sidebar .social-icons {
+    margin-bottom: 20px;
+  }
+
+  .social-icons i {
+    background: black;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  .dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .sidebar,
+    .main-content {
+      width: auto;
+      max-width: 100%;
+    }
+
+    .main-content {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <aside class="sidebar">
+    <img src="logo.png" alt="Logo" width="100">
+    <h1>Título</h1>
+    <menu>
+      <li>Inicio</li>
+      <li>Proyectos</li>
+      <li>Contacto</li>
+    </menu>
+    <div class="social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+    </div>
+    <div class="dark-mode-toggle">
+      <i class="fas fa-sun"></i>
+      <label class="switch">
+        <input type="checkbox">
+        <span class="slider round"></span>
+      </label>
+      <i class="fas fa-moon"></i>
+    </div>
+  </aside>
+  
+  <div class="main-content">
+    <!-- Ejemplo de una card grande -->
+    <div class="card large"></div>
+    
+    <!-- Ejemplo de cards pequeñas -->
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <!-- ... Puedes agregar más cards según sea necesario ... -->
+  </div>
+</div>
+
+</body>
+</html>
