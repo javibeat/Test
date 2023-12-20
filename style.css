@@ -2,39 +2,57 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; /* O el color de fondo que prefieras */
+    background-color: #f4f7f6; /* Main background color */
   }
   
   .sidebar {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+    background-color: #181818; /* Sidebar background color */
+    color: #fff; /* Sidebar text color */
     width: 300px;
     height: 100vh;
+    padding: 20px;
     position: fixed;
-    overflow-y: auto;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .logo {
-    width: 100px; /* O el tamaño que prefieras */
+  .profile-container {
+    text-align: center;
+  }
+  
+  .profile-pic {
+    border-radius: 50%;
+    width: 100px; /* Adjust the size as needed */
     margin-bottom: 20px;
   }
   
-  .social-icons {
-    list-style: none;
-    padding: 0;
+  h1 {
+    font-size: 24px; /* Adjust the size as needed */
+    margin: 10px 0;
   }
   
-  .social-icons i {
-    font-size: 24px; /* O el tamaño que prefieras */
-    margin-right: 10px;
+  .social-icons {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    margin: 0 10px;
+    color: #fff; /* Social icons color */
+    font-size: 24px; /* Social icons size */
   }
   
   .dark-mode-toggle {
-    position: absolute;
-    bottom: 20px;
-    width: calc(100% - 40px);
+    margin-top: auto; /* Push the toggle to the bottom */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .main-content {
@@ -43,25 +61,15 @@ body, html {
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
     gap: 20px;
+    background-color: #f4f7f6; /* Background color for the main content */
   }
   
   .card {
-    background-color: white;
-    width: calc(50% - 20px); /* Para 2 columnas, incluyendo el espacio entre tarjetas */
-    height: 200px; /* O la altura que prefieras */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* Your card styles here */
   }
   
-  .card.large {
-    width: calc(100% - 20px); /* Para una tarjeta grande */
-  }
-  
-  /* Estilos para pantalla pequeña */
+  /* Add responsive adjustments for mobile sizes if necessary */
   @media (max-width: 768px) {
     .sidebar {
       width: 100%;
@@ -72,26 +80,4 @@ body, html {
     .main-content {
       margin-left: 0;
     }
-  
-    .card {
-      width: calc(100% - 40px); /* Para que las tarjetas sean de ancho completo en móvil */
-    }
-  }
-  
-  /* Estilos adicionales para el modo oscuro (añade esto también al archivo styles.css) */
-  [data-theme="dark"] {
-    background-color: #1c1c1c;
-    color: white;
-  }
-  
-  [data-theme="dark"] .sidebar {
-    background: #262626;
-  }
-  
-  [data-theme="dark"] .card {
-    background: #333;
-  }
-  
-  [data-theme="dark"] .social-icons i {
-    color: white;
   }

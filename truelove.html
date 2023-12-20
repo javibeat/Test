@@ -3,23 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diseño Inspirado</title>
+<title>Portfolio Design</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <div class="sidebar">
-  <img src="logo.png" alt="Logo" class="logo">
-  <h1>Batuhan Bilgin</h1>
-  <p>Developer & Creator</p>
-  <p>Building AI products and creating video tutorials on Youtube.</p>
-  <div class="social-icons">
-    <i class="fab fa-youtube"></i>
-    <i class="fab fa-discord"></i>
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-github"></i>
+  <!-- Sidebar content here -->
+  <div class="profile-container">
+    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+    <h1>Batuhan Bilgin</h1>
+    <p>Developer & Creator</p>
+    <p>Building AI products and creating video tutorials on Youtube.</p>
   </div>
+  
+  <!-- Social Icons -->
+  <div class="social-icons">
+    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+  </div>
+  
+  <!-- Dark Mode Toggle -->
   <div class="dark-mode-toggle">
     <i class="fas fa-sun"></i>
     <label class="switch">
@@ -31,7 +38,22 @@
 </div>
 
 <div class="main-content">
-  <!-- Aquí irían las tarjetas de contenido, como se describió anteriormente -->
+  <!-- Main content cards here -->
+
+  <div class="card-section">
+    <!-- Fila 1 con 1 card horizontal grande -->
+    <div class="card horizontal"></div>
+  
+    <!-- Fila 2 con 2 cards cuadradas pequeñas -->
+    <div class="card small"></div>
+    <div class="card small"></div>
+  
+    <!-- Fila 3 con 1 card cuadrada grande -->
+    <div class="card large"></div>
+  
+    <!-- Puedes seguir este patrón para agregar más filas de cards según sea necesario -->
+  </div>
+
 </div>
 
 <script src="dark-mode.js"></script>
