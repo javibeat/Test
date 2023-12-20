@@ -1,4 +1,85 @@
-[data-theme="dark"] {
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* O el color de fondo que prefieras */
+  }
+  
+  .sidebar {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    width: 100px; /* O el tamaño que prefieras */
+    margin-bottom: 20px;
+  }
+  
+  .social-icons {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .social-icons i {
+    font-size: 24px; /* O el tamaño que prefieras */
+    margin-right: 10px;
+  }
+  
+  .dark-mode-toggle {
+    position: absolute;
+    bottom: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .main-content {
+    margin-left: 300px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    width: calc(50% - 20px); /* Para 2 columnas, incluyendo el espacio entre tarjetas */
+    height: 200px; /* O la altura que prefieras */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card.large {
+    width: calc(100% - 20px); /* Para una tarjeta grande */
+  }
+  
+  /* Estilos para pantalla pequeña */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  
+    .card {
+      width: calc(100% - 40px); /* Para que las tarjetas sean de ancho completo en móvil */
+    }
+  }
+  
+  /* Estilos adicionales para el modo oscuro (añade esto también al archivo styles.css) */
+  [data-theme="dark"] {
     background-color: #1c1c1c;
     color: white;
   }
@@ -12,77 +93,5 @@
   }
   
   [data-theme="dark"] .social-icons i {
-    background: white;
-    color: black;
-  }
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    display: flex;
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  .sidebar {
-    width: 300px;
-    background: #333;
     color: white;
-    padding: 20px;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 10px;
-    padding: 20px;
-  }
-  
-  .card {
-    background: #f0f0f0;
-    aspect-ratio: 1;
-  }
-  
-  .card.large {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  
-  .sidebar h1,
-  .sidebar menu,
-  .sidebar .social-icons {
-    margin-bottom: 20px;
-  }
-  
-  .social-icons i {
-    background: black;
-    border-radius: 50%;
-    padding: 10px;
-  }
-  
-  .dark-mode-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    .sidebar,
-    .main-content {
-      width: auto;
-      max-width: 100%;
-    }
-  
-    .main-content {
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    }
   }
