@@ -35,6 +35,7 @@ body {
   height: 100%;
   border-radius: 10px;
   margin: 20px;
+  background-color: beige;
 }
 
 .mainContent {
@@ -43,29 +44,7 @@ body {
   max-width: 850px;
   align-items: center;
   margin: 20px;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
-}
-/* Estilos para desktop */
-.menu-container {
-  display: none;
-}
-
-/* Estilos para desktop */
-@media screen and (min-width: 769px) {
-  .menu-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .menu-hamburger {
-    display: none;
-  }
+  background-color: bisque;
 }
 
 /* Estilos para mobile */
@@ -73,28 +52,6 @@ body {
   .container {
     display: flex;
     flex-direction: column;
-  }
-
-  .menu-container {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      padding: 10px;
-  }
-
-  .menu-hamburger {
-      display: flex;
-  }
-
-  .sideBar.expanded {
-      width: 100%;
-  }
-
-  .menu {
-      display: none;
-  }
-
-  .sideBar.expanded .menu {
-      display: flex;
+    margin: 20px;
   }
 }
