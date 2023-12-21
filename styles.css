@@ -5,9 +5,66 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  background-color: var(--background-color); /* Color del fondo para modo oscuro/claro */
+}
+
 .container {
   max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: row; /* Cambiado para manejar el footer */
-  min-height: 100vh; /* Altura mínima para empujar el footer abajo */
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.1); /* Para efecto blur */
+  backdrop-filter: blur(10px); /* Para efecto blur */
+  border-radius: 10px;
 }
+
+.sideBar {
+  width: 350px;
+  padding: 20px;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+/* Estilos para los modos claro y oscuro */
+:root {
+  --background-color: #fff; /* Modo claro */
+}
+
+[data-theme="dark"] {
+  --background-color: #333; /* Modo oscuro */
+}
+
+/* Estilos para la versión móvil */
+@media (max-width: 768px) {
+  .sideBar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .mainContent {
+    width: 100%;
+  }
+}
+
+/* Más estilos según necesidad */
