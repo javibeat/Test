@@ -59,3 +59,11 @@ body {
     max-width: 100%;
   }
 }
+
+/*--FOOTER--*/
+
+footer {
+  position: fixed;
+  align-items: center;
+  margin: auto;
+}
