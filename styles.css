@@ -44,6 +44,20 @@ body {
   display: none;
 }
 
+/* Estilos para desktop */
+@media screen and (min-width: 769px) {
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .menu-hamburger {
+    display: none;
+  }
+}
+
 /* Estilos para mobile */
 @media screen and (max-width: 768px) {
   .menu-container {
