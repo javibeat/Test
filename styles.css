@@ -77,23 +77,34 @@ body.dark-mode {
 
 @media (max-width: 768px) {
     .mobile-menu-button {
-        display: block; /* Mostrar solo en móviles */
+        display: block; /* Mostrar el botón en dispositivos móviles */
     }
 
     .menu-container {
-        display: none; /* El menú está oculto hasta que se hace clic en el botón de hamburguesa */
+        display: none; /* Ocultar el menú por defecto */
+        position: fixed; /* Posicionamiento fijo en la parte superior */
+        top: 0;
+        left: 0;
+        width: 100%; /* Ancho completo */
+        background-color: var(--color-primary-dark-mode); /* Fondo para el modo oscuro */
+        z-index: 15; /* Asegurarse de que está por encima de otros elementos */
     }
 
     .menu-container.active {
-        display: block; /* Mostrar cuando está activo */
-        position: absolute; /* Posicionamiento absoluto o fijo según tu diseño */
-        width: 100%; /* Ajusta el ancho según sea necesario */
-        background-color: #fff; /* O el color de fondo deseado */
-        /* Agrega estilos adicionales para tus enlaces aquí */
+        display: block; /* Mostrar cuando el menú esté activo */
     }
 
     .menu a {
-        display: block; /* O como sea necesario para tus enlaces */
+        text-align: center; /* Centrar texto */
+        padding: 10px; /* Espaciado */
+    }
+
+    /* Estilos para los iconos sociales */
+    .social a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%; /* Redondear esquinas para hacerlos círculos */
+        margin-right: 10px;
     }
 }
 
