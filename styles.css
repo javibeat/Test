@@ -13,7 +13,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Cambiado para manejar el footer */
+  flex-direction: row; /* Cambiado para manejar el footer */
   min-height: 100vh; /* Altura mínima para empujar el footer abajo */
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
