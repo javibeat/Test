@@ -1,17 +1,3 @@
-:root {
-    /* Colores para el modo claro */
-    --color-primary-light-mode: #ffffff;
-    --color-primary-grey-light-mode: #000000;
-    --color-secondary-light-mode: #f50d0d;
-    --text-color-light-mode: #ffffff;
-
-    /* Colores para el modo oscuro */
-    --color-primary-dark-mode: #000000;
-    --color-primary-grey-dark-mode: #ffffff; /* Un gris más claro para el modo oscuro */
-    --color-secondary-dark-mode: #ffa500; /* Un color diferente para el modo oscuro si lo deseas */
-    --text-color-dark-mode: #000000;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,253 +5,53 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body.light-mode {
-    background-color: var(--color-primary-light-mode);
-    color: var(--color-primary-dark-mode);
-    --color-primary-grey: var(--color-primary-grey-light-mode);
-    --color-secondary: var(--color-secondary-light-mode);
-    --text-color: var(--text-color-light-mode);
-}
-
-body.dark-mode {
-    background-color: var(--color-primary-dark-mode);
-    color: var(--color-primary-light-mode);
-    --color-primary-grey: var(--color-primary-grey-dark-mode);
-    --color-secondary: var(--color-secondary-dark-mode);
-    --text-color: var(--text-color-dark-mode);
-}
-
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    align-items: flex-start;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.sidebar {
-    padding: 20px;
-    width: 350px;
-}
-
-.sidebar img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.intro {
-    padding: 0 0 15px;
-}
-
-.menu-container {
-    margin: 40px 0;
-}
-
-.menu a {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 0;
-}
-
-.mobile-menu-button {
-    display: none; /* Ocultar por defecto */
-    cursor: pointer;
-    /* Agrega más estilos según sea necesario */
-}
-
+/* Estilos responsivos */
 @media (max-width: 768px) {
-    .mobile-menu-button {
-        display: block; /* Mostrar el botón en dispositivos móviles */
+    .sideBar {
+      /* Aplicar estilos glassmorphism */
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      border-radius: 10px;
+      padding: 20px;
+      position: relative; /* Necesario para posicionar absolutamente los iconos sociales y el botón de modo */
     }
-
-    .menu-container {
-        display: none; /* Ocultar el menú por defecto */
-        position: fixed; /* Posicionamiento fijo en la parte superior */
-        top: 0;
-        left: 0;
-        width: 100%; /* Ancho completo */
-        background-color: var(--color-primary-dark-mode); /* Fondo para el modo oscuro */
-        z-index: 15; /* Asegurarse de que está por encima de otros elementos */
+  
+    .social, .mode {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
-
-    .menu-container.active {
-        display: block; /* Mostrar cuando el menú esté activo */
-    }
-
-    .menu a {
-        text-align: center; /* Centrar texto */
-        padding: 10px; /* Espaciado */
-    }
-
-    /* Estilos para los iconos sociales */
-    .social a {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%; /* Redondear esquinas para hacerlos círculos */
-        margin-right: 10px;
-    }
-}
-
-.social a {
-    display: inline-block;
-    width: 40px; /* Tamaño del círculo */
-    height: 40px; /* Tamaño del círculo */
-    background-color: var(--color-secondary); /* Fondo del círculo */
-    color: #fff; /* Color del icono */
-    border-radius: 50%; /* Hace que sea completamente redondo */
-    text-align: center; /* Centra el icono horizontalmente */
-    line-height: 40px; /* Centra el icono verticalmente */
-    margin-right: 10px; /* Espaciado entre iconos */
-    text-decoration: none;
-    transition: background-color 0.3s; /* Transición suave para hover */
-}
-
-.social a:hover {
-    background-color: var(--color-primary-dark-mode); /* Cambia al color que desees para el hover */
-}
-
-.mode-toggle {
-    cursor: pointer;
-    display: inline-block; /* O cualquier otro estilo que te guste */
-    /* Estilos adicionales aquí */
-}
-
-.mode .mode-toggle {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    /* Añade estilos adicionales si necesitas */
-}
-
-.mode-toggle i {
-    margin-right: 10px;
-}
-
-.toggle-switch {
-    width: 40px;
-    height: 20px;
-    background-color: var(--color-secondary);
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-}
-
-.toggle-switch::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 16px;
-    height: 16px;
-    background-color: var(--color-primary-light);
-    transition: all 0.3s;
-}
-
-body.dark-mode .toggle-switch::before {
-    left: 22px;
-}
-
-.fas {
-    margin-top: 40px;
-    font-size: 24px; /* Ajusta el tamaño según necesites */
-    color: var(--color-secondary); /* Ajusta el color si es necesario */
-    transition: color 0.3s; /* Suaviza la transición de color */
-}
-
-
-
-.mainContent {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    background-color: var(--color-primary-grey); /* Ahora se actualizará según el modo */
-    border-radius: 10px;
-    margin-bottom: 20px;
-    color: var(--text-color);
-}
-
-.card.small {
-    width: calc(50% - 10px);
-    height: 100%;
-}
-
-.card.large {
-    width: 100%;
-    height: 100%;
-}
-
-.card.horizontal {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.in {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.ico {
-    display: flex;
-    flex-direction: row;
-}
-
-.icons {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    align-items: center;
-    margin: auto;
-    justify-content: center;
-}
-
-.icons h4 {
-    margin-top: 15px;
-}
-
-/* Additional styles for responsive design and cards */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .menu {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .menu a {
-        margin: auto;
-        align-items: center;
-    }
-
-    .menu-container.active {
-        display: block;
-        /* Resto de tus estilos... */
-    }
-
-    .sidebar,
+  
     .mainContent {
-        width: 100%;
-        max-width: none;
+      margin-top: 20px; /* Espacio entre sidebar y contenido principal */
     }
-
-    .mobile-menu-button {
-        display: flex; /* O 'block', según tu diseño */
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto; /* Centrar container */
     }
-}
+  
+    /* Margenes laterales */
+    body {
+      padding: 0 20px;
+    }
+  }
+  
+  /* Estilos para las cards */
+  .card1 {
+    width: 100%;
+    /* Otros estilos para card1 */
+  }
+  
+  .card2 {
+    width: 100%;
+    /* Otros estilos para card2 */
+  }
+  
+  .card3 {
+    width: 100%;
+    /* Otros estilos para card3 */
+  }
+  
