@@ -5,3 +5,16 @@
   padding: 0;
   font-family: 'Montserrat', sans-serif;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+}
+
+.sideBar {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  height: 100%;
+}
