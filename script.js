@@ -15,6 +15,11 @@ function toggleMode() {
     }
 }
 
+function toggleMobileMenu() {
+    var menuContainer = document.querySelector('.menu-container');
+    menuContainer.classList.toggle('active');
+}
+
 // Función para cargar el modo guardado
 function loadPreferredMode() {
     var savedTheme = localStorage.getItem('theme');
