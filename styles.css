@@ -1,10 +1,7 @@
 :root {
-  /* Define los colores para el modo claro y oscuro */
-  --fondo-claro: rgba(255, 255, 255, 0.7);
-  --fondo-oscuro: rgba(0, 0, 0, 0.7);
+
 }
 
-/* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,19 +20,4 @@
   flex-direction: column;
   max-width: 350px;
   height: 100%;
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 20px;
-  text-align: center;
-  margin: 20px ;
-  transition: background-color 0.3s;
-}
-
-/* Aplica el fondo según el tema */
-.sideBar.modo-claro {
-  background-color: var(--fondo-claro);
-}
-
-.sideBar.modo-oscuro {
-  background-color: var(--fondo-oscuro);
 }
