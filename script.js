@@ -13,6 +13,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Cambiar entre modos claro y oscuro
   document.querySelector('.mode').addEventListener('click', function() {
-      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+          document.body.classList.remove('dark-mode');
+          document.querySelector('.mode i').classList.remove('fas', 'fa-sun');
+          document.querySelector('.mode i').classList.add('fas', 'fa-moon');
+      } else {
+          document.body.classList.add('dark-mode');
+          document.querySelector('.mode i').classList.remove('fas', 'fa-moon');
+          document.querySelector('.mode i').classList.add('fas', 'fa-sun');
+      }
   });
 });
