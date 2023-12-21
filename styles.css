@@ -1,3 +1,20 @@
+/* Definiendo colores base */
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+}
+
+/* Estilos para el modo oscuro */
+body.dark-mode {
+  --background-color: #000;
+  --text-color: #fff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,5 +33,4 @@
   flex-direction: column;
   max-width: 350px;
   height: 100%;
-  background-color: antiquewhite;
 }
