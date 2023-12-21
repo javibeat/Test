@@ -1,29 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sideBar = document.querySelector('.sideBar');
-    const modeSwitch = document.getElementById('modeSwitch'); // Asegúrate de que este es el ID correcto
+    const menuHamburger = document.querySelector('.menu-hamburger'); // Asegúrate de que la clase es la correcta
 
-    // Cargar el menú desde menu.html y añadir funcionalidades después de la carga
+    // Funcionalidad para cambiar modos claro/oscuro
+    const modeSwitch = document.querySelector('.mode'); // Usa la clase o el ID que tengas
+    modeSwitch.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    // Cargar el menú desde menu.html
     fetch('menu.html')
         .then(response => response.text())
         .then(html => {
             const menuContainer = document.getElementById('menuContainer');
             menuContainer.innerHTML = html;
-            
-            // Después de cargar el menú, añadir evento click al menú hamburguesa
-            const menuHamburger = document.getElementById('menuHamburger');
+            // Asegurarse de que el menú es interactuable una vez cargado
             menuHamburger.addEventListener('click', () => {
+                // Aquí debería ir la lógica para desplegar el menú como un acordeón
                 sideBar.classList.toggle('expanded');
-                // Toggle del display del menú dependiendo de la clase 'expanded'
-                const menu = document.querySelector('.menu');
+                const menu = menuContainer.querySelector('.menu'); // Asegúrate de que la clase es la correcta
                 if (menu) {
-                    menu.style.display = sideBar.classList.contains('expanded') ? 'flex' : 'none';
+                    if (sideBar.classList.contains('expanded')) {
+                        menu.style.display = 'block'; // O el estilo que prefieras
+                    } else {
+                        menu.style.display = 'none';
+                    }
                 }
             });
         })
-        .catch(error => console.error('Error al cargar el menú:', error));
-
-    // Funcionalidad para cambiar modos claro/oscuro
-    modeSwitch.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
+        .catch(error => {
+            console.error('Error al cargar el menú:', error);
+        });
 });
