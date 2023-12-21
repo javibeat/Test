@@ -1,3 +1,4 @@
+/* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,8 +6,23 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+/* Variables for light and dark themes */
+:root {
+  --background-color-light: #fff;
+  --text-color-light: #000;
+  --background-color-dark: #262626;
+  --text-color-dark: #f1f1f1;
+}
+
 body {
-  background-color: var(--background-color); /* Color del fondo para modo oscuro/claro */
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
 }
 
 .container {
@@ -15,16 +31,35 @@ body {
   display: flex;
   flex-wrap: wrap;
   min-height: 100vh;
-  background: rgba(255, 255, 255, 0.1); /* Para efecto blur */
-  backdrop-filter: blur(10px); /* Para efecto blur */
   border-radius: 10px;
+  overflow: hidden;
 }
 
+/* Sidebar styles */
 .sideBar {
   width: 350px;
   padding: 20px;
+  background: rgba(255, 255, 255, 0.1); /* Para efecto blur */
+  backdrop-filter: blur(10px); /* Para efecto blur */
 }
 
+/* Menu and hamburger icon */
+.menu-container {
+  display: none; /* Hidden by default, shown in desktop view below */
+}
+
+.menu-hamburger {
+  display: flex; /* Shown by default, hidden in desktop view below */
+  cursor: pointer;
+}
+
+/* Social and mode icons */
+.social, .mode {
+  display: flex;
+  gap: 10px;
+}
+
+/* Main content styles */
 .mainContent {
   flex: 1;
   padding: 20px;
@@ -34,69 +69,58 @@ body {
   justify-content: flex-start; /* Ajuste para efecto masonry */
 }
 
+/* Card styles with glassmorphism */
 .card {
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border-radius: 10px;
   padding: 20px;
-  margin-bottom: 20px; /* Añadido para espaciado vertical en masonry */
-}
-
-/* Estilos para los modos claro y oscuro */
-:root {
-  --background-color: #fff; /* Modo claro */
-}
-
-[data-theme="dark"] {
-  --background-color: #333; /* Modo oscuro */
-}
-
-/* Estilos para la versión móvil */
-@media (max-width: 768px) {
-  .sideBar {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+  margin-bottom:20px; /* Añadido para espaciado vertical en masonry */
+  transition: background 0.3s, color 0.3s;
   }
-
-  .mainContent {
-    width: 100%;
+  
+  body.dark-mode .card {
+  background: rgba(0, 0, 0, 0.1);
   }
-
-  .menu-hamburger {
-    display: block;
-  }
-
+  
+  /* Desktop specific styles /
+  @media (min-width: 769px) {
   .menu-container {
-    display: none; /* Ocultar por defecto en móviles */
+  display: block; / Show menu in desktop */
   }
-
-  .sideBar.active .menu-container {
-    display: flex; /* Mostrar cuando el menú hamburguesa esté activo */
-    flex-direction: column;
+  
+  .menu-hamburger {
+  display: none; /* Hide hamburger icon in desktop */
   }
-}
-
-/* Ocultar el ícono de hamburguesa en la versión de escritorio */
-.menu-hamburger {
-  display: none;
-}
-
-/* Ajustes para el menú en la versión de escritorio */
-.menu-container {
+  }
+  
+  /* Mobile specific styles */
+  @media (max-width: 768px) {
+  .sideBar {
+  width: 100%;
+  padding: 10px;
+  }
+  
+  .mainContent {
+  width: 100%;
+  }
+  
+  /* Responsive alignment of social icons and mode switch */
+  .logo, .social, .mode {
   display: flex;
-  flex-direction: column;
-  /* Añadir más estilos si es necesario */
-}
-
-/* Estilos para las cards con diferentes tamaños */
-.card.small { flex: 0 1 calc(33.333% - 20px); }
-.card.large { flex: 0 1 calc(66.666% - 20px); }
-.card.tall { flex: 0 1 calc(33.333% - 20px); height: 300px; }
-.card.wide { flex: 0 1 100%; height: 150px; }
-.card.square { flex: 0 1 calc(50% - 20px); height: calc(50vw - 20px); }
-/* Más estilos según necesidad */
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  }
+  
+  .sideBar.active {
+  /* Styles when the menu is active on mobile */
+  }
+  }
+  
+  /* Transition effects for theme change */
+  .transition {
+  transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* More styles as needed */
