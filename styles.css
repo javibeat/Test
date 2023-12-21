@@ -1,4 +1,3 @@
-/* Estilos Generales */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,13 +5,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.dark-mode {
-background: #333; / Fondo oscuro /
-color: white; / Texto claro
-}
-
-html, body {
-  height: 100%; /* Asegurar que el html y body ocupen todo el alto disponible */
+body {
   background: #f0f0f0; /* Color de fondo para modo claro */
 }
 
@@ -20,18 +13,18 @@ html, body {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; /* Cambiado para manejar el footer */
+  min-height: 100vh; /* Altura mínima para empujar el footer abajo */
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
   backdrop-filter: blur(10px);
-  min-height: calc(100vh - 40px); /* Altura mínima para que el footer quede abajo */
 }
 
 /* Estilos para el Footer */
 footer {
   text-align: center;
   padding: 20px;
-  position: relative;
+  position: absolute; /* Posicionamiento absoluto dentro de .container */
   bottom: 0;
   width: 100%;
 }
@@ -39,53 +32,49 @@ footer {
 /* Estilos para Escritorio */
 @media (min-width: 768px) {
   .sideBar {
-      width: 350px;
-      float: left;
-      background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
-      backdrop-filter: blur(10px);
-      border-radius: 10px;
-      margin-right: 10px; /* Espacio entre sidebar y mainContent */
+    width: 350px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
   }
 
   .mainContent {
-      width: calc(100% - 360px); /* Ajuste para el espacio entre sidebar y mainContent */
-      float: left;
+    width: calc(100% - 370px); /* Ajuste por el margen del sidebar */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
   }
 
   .menu-hamburger {
-      display: none; /* Ocultar en escritorio */
-  }
-
-  .menu-container a {
-      text-decoration: none; /* Quitar subrayado */
-      color: black; /* Color del texto */
-      display: block; /* Asegurar que estén en vertical */
+    display: none; /* Ocultar en escritorio */
   }
 }
 
 /* Estilos para Móvil */
 @media (max-width: 767px) {
   .sideBar, .mainContent {
-      width: 100%;
-      margin: 10px 0;
+    width: 100%;
+    margin: 10px 0;
   }
 
   .menu-hamburger {
-      display: block; /* Visible solo en móvil */
+    display: block; /* Visible solo en móvil */
   }
 }
 
 /* Estilos para el Sidebar */
 .sideBar {
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1; /* Hacer que el sidebar crezca con el contenido */
 }
 
 .logo img {
   max-width: 100%; /* Asegura que el logo no sea más grande que su contenedor */
   height: auto;
-  border-radius: 10px; /* Si el logo debe tener bordes redondeados */
+  border-radius: 10px;
 }
 
 .social i {
@@ -106,6 +95,7 @@ footer {
   flex-wrap: wrap;
   gap: 10px;
   padding: 20px;
+  flex-grow: 1; /* Permitir que mainContent crezca */
 }
 
 .card {
@@ -114,4 +104,21 @@ footer {
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 10px; /* Bordes redondeados para las cards */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.card i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Modos Claro y Oscuro */
+.dark-mode {
+  background: #1c1c1c; /* Fondo más oscuro para el modo oscuro */
+  color: white; /* Texto claro */
 }
