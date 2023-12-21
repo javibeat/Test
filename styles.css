@@ -98,9 +98,21 @@ body.dark-mode {
 }
 
 .social a {
-    color: inherit;
+    display: inline-block;
+    width: 40px; /* Tamaño del círculo */
+    height: 40px; /* Tamaño del círculo */
+    background-color: var(--color-secondary); /* Fondo del círculo */
+    color: #fff; /* Color del icono */
+    border-radius: 50%; /* Hace que sea completamente redondo */
+    text-align: center; /* Centra el icono horizontalmente */
+    line-height: 40px; /* Centra el icono verticalmente */
+    margin-right: 10px; /* Espaciado entre iconos */
     text-decoration: none;
-    margin-right: 10px;
+    transition: background-color 0.3s; /* Transición suave para hover */
+}
+
+.social a:hover {
+    background-color: var(--color-primary-dark-mode); /* Cambia al color que desees para el hover */
 }
 
 .mode-toggle {
@@ -145,10 +157,13 @@ body.dark-mode .toggle-switch::before {
 }
 
 .fas {
+    margin-top: 40px;
     font-size: 24px; /* Ajusta el tamaño según necesites */
     color: var(--color-secondary); /* Ajusta el color si es necesario */
     transition: color 0.3s; /* Suaviza la transición de color */
 }
+
+
 
 .mainContent {
     flex: 1;
@@ -228,9 +243,18 @@ body.dark-mode .toggle-switch::before {
         align-items: center;
     }
 
+    .menu-container.active {
+        display: block;
+        /* Resto de tus estilos... */
+    }
+
     .sidebar,
     .mainContent {
         width: 100%;
         max-width: none;
+    }
+
+    .mobile-menu-button {
+        display: flex; /* O 'block', según tu diseño */
     }
 }

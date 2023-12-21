@@ -1,7 +1,7 @@
 // Función para cambiar entre modo claro y oscuro
 function toggleMode() {
     var body = document.body;
-    var modeIcon = document.getElementById('mode-icon');
+    var modeIcon = document.getElementById('mode-icon'); // Añade el ID 'mode-icon' al ícono correspondiente en tu HTML
 
     body.classList.toggle('light-mode');
     body.classList.toggle('dark-mode');
