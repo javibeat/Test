@@ -66,24 +66,27 @@ body.dark-mode {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: flex-start; /* Ajuste para efecto masonry */
+  justify-content: space-around; /* Ajuste para efecto masonry */
 }
 
 /* Card styles with glassmorphism */
 .card {
+  /* ... */
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 20px;
-  margin-bottom:20px; /* Añadido para espaciado vertical en masonry */
-  transition: background 0.3s, color 0.3s;
-  }
-  
-  body.dark-mode .card {
+  margin-bottom: 20px;
+  color: var(--text-color-light);
+  transition: background 0.3s, color 0.3s, border-radius 0.3s, backdrop-filter 0.3s;
+}
+
+/* Dark mode styles */
+body.dark-mode .card {
   background: rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Desktop specific styles /
+  color: var(--text-color-dark);
+}
+
   @media (min-width: 769px) {
   .menu-container {
   display: block; / Show menu in desktop */
