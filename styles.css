@@ -54,4 +54,8 @@ body {
     flex-direction: column;
     margin: 20px;
   }
+
+  .sideBar {
+    max-width: 100%;
+  }
 }
