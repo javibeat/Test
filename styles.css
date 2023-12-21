@@ -25,6 +25,8 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin: auto;
   max-width: 1200px;
 }
 
@@ -39,6 +41,35 @@ body {
 
 .logo {
   margin: 0 0 20px 0;
+}
+
+.menu-hamburger {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.menu a {
+  text-decoration: none; /* No decoración en enlaces */
+  color: var(--text-color); /* El color cambiará según el modo */
+  margin-bottom: 5px;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.social .fab {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border-radius: 50%;
+  margin: 0 20px 0 0;
 }
 
 .mainContent {
@@ -56,16 +87,52 @@ body {
     display: flex;
     flex-direction: column;
     margin: 20px;
+    align-items: center;
   }
 
   .sideBar {
+    position: relative;
     max-width: 100%;
+    padding: 20px;
+  }
+
+  .resp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .menu-hamburger {
+    display: block; /* Mostrar el menú hamburguesa en móviles */
+  }
+
+  .menu {
+    position: absolute; /* Posicionamiento absoluto para el menú */
+    top: 100%; /* Ubicar el menú justo debajo del icono hamburguesa */
+    left: 0;
+    right: 0;
+    display: none; /* Comienza oculto */
+  }
+
+  .menu a {
+    margin: 5px;
+  }
+
+  .sideBar.expanded .menu {
+    display: flex; /* Mostrar el menú cuando el sidebar está expandido */
+  }
+
+  .sideBar {
+    /* Asegurarse de que el sidebar se expanda adecuadamente */
+    width: 100%; /* Puede que necesites ajustar esto según tu diseño */
+    transition: all 0.3s; /* Una transición suave para la expansión */
   }
 }
 
 /*--FOOTER--*/
 
 footer {
+  display: flex;
   position: fixed;
   align-items: center;
   margin: auto;

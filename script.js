@@ -1,34 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sideBar = document.querySelector('.sideBar');
-    const menuHamburger = document.querySelector('.menu-hamburger'); // Asegúrate de que la clase es la correcta
+    const menuHamburger = document.querySelector('.menu-hamburger');
+    const modeSwitch = document.querySelector('.mode');
 
-    // Funcionalidad para cambiar modos claro/oscuro
-    const modeSwitch = document.querySelector('.mode'); // Usa la clase o el ID que tengas
+    // Verificar si el usuario tiene una preferencia de modo claro/oscuro guardada
+    if(localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        modeSwitch.innerHTML = '<i class="fas fa-sun"></i>'; // Cambiar a ícono de sol si está en modo oscuro
+    } else {
+        modeSwitch.innerHTML = '<i class="fas fa-moon"></i>'; // Ícono de luna para modo claro
+    }
+
     modeSwitch.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
+        // Guardar la preferencia de modo del usuario
+        let isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        modeSwitch.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     });
 
-    // Cargar el menú desde menu.html
     fetch('menu.html')
         .then(response => response.text())
         .then(html => {
-            const menuContainer = document.getElementById('menuContainer');
+            const menuContainer = document.querySelector('.menu-container');
             menuContainer.innerHTML = html;
-            // Asegurarse de que el menú es interactuable una vez cargado
-            menuHamburger.addEventListener('click', () => {
-                // Aquí debería ir la lógica para desplegar el menú como un acordeón
-                sideBar.classList.toggle('expanded');
-                const menu = menuContainer.querySelector('.menu'); // Asegúrate de que la clase es la correcta
-                if (menu) {
-                    if (sideBar.classList.contains('expanded')) {
-                        menu.style.display = 'block'; // O el estilo que prefieras
-                    } else {
-                        menu.style.display = 'none';
-                    }
-                }
-            });
+            // Resto del código...
         })
         .catch(error => {
             console.error('Error al cargar el menú:', error);
         });
+
+    // Resto del código...
 });
