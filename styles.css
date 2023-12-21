@@ -1,41 +1,85 @@
+/* Estilos Generales */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    .sideBar {
-      /* Aplicar estilos glassmorphism */
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(5px);
-      border-radius: 10px;
-      padding: 20px;
-      position: relative; /* Necesario para posicionar absolutamente los iconos sociales y el botón de modo */
-    }
-  
-    .social, .mode {
-      position: absolute;
-      bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-  
-    .mainContent {
-      margin-top: 20px; /* Espacio entre sidebar y contenido principal */
-    }
-  
-    .container {
-      max-width: 1200px;
-      margin: 0 auto; /* Centrar container */
-    }
-  
-    /* Margenes laterales */
-    body {
-      padding: 0 20px;
-    }
+body {
+  background: #f0f0f0; /* Color de fondo para modo claro */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
+  backdrop-filter: blur(10px);
+}
+
+/* Estilos para Escritorio */
+@media (min-width: 768px) {
+  .sideBar {
+      width: 350px;
+      float: left;
   }
-  
+
+  .mainContent {
+      width: 850px;
+      float: right;
+  }
+}
+
+/* Estilos para Móvil */
+@media (max-width: 767px) {
+  .sideBar, .mainContent {
+      width: 100%;
+      margin: 10px 0;
+  }
+
+  .menu-hamburger {
+      display: block; /* Visible solo en móvil */
+  }
+}
+
+/* Estilos para el Sidebar */
+.sideBar {
+  padding: 20px;
+}
+
+.logo img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.social i, .mode i {
+  display: inline-block;
+  margin: 5px;
+  border-radius: 50%;
+  /* Agregar más estilos para iconos */
+}
+
+/* Estilos para el Main Content */
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+}
+
+.card {
+  flex: 1 1 calc(33.333% - 10px); /* 3 columnas por defecto */
+  margin: 5px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Agregar más estilos para las cards */
+}
+
+/* Modos Claro y Oscuro */
+.dark-mode {
+  background: #333; /* Fondo oscuro */
+  color: white; /* Texto claro */
+}
