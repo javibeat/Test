@@ -1,35 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuContainer = document.getElementById('menuContainer');
-    const menuHamburger = document.getElementById('menuHamburger');
     const sideBar = document.querySelector('.sideBar');
-    const modeSwitch = document.getElementById('modeSwitch'); // Asegúrate de que el ID es correcto
+    const modeSwitch = document.getElementById('modeSwitch'); // Asegúrate de que este es el ID correcto
 
-    // Cargar el menú desde menu.html
+    // Cargar el menú desde menu.html y añadir funcionalidades después de la carga
     fetch('menu.html')
         .then(response => response.text())
         .then(html => {
+            const menuContainer = document.getElementById('menuContainer');
             menuContainer.innerHTML = html;
+            
+            // Después de cargar el menú, añadir evento click al menú hamburguesa
+            const menuHamburger = document.getElementById('menuHamburger');
+            menuHamburger.addEventListener('click', () => {
+                sideBar.classList.toggle('expanded');
+                // Toggle del display del menú dependiendo de la clase 'expanded'
+                const menu = document.querySelector('.menu');
+                if (menu) {
+                    menu.style.display = sideBar.classList.contains('expanded') ? 'flex' : 'none';
+                }
+            });
         })
         .catch(error => console.error('Error al cargar el menú:', error));
-
-    // Funcionalidad del menú hamburguesa para móviles
-    menuHamburger.addEventListener('click', () => {
-        // Toggle la clase 'expanded' para el sidebar
-        sideBar.classList.toggle('expanded');
-        // Comprobar si el menú está expandido para mostrar u ocultar el menú
-        const menu = sideBar.querySelector('.menu'); // Selecciona el menú dentro del sidebar
-        if (menu) {
-            if (sideBar.classList.contains('expanded')) {
-                menu.style.display = 'flex'; // o 'block', dependiendo de tus estilos
-            } else {
-                menu.style.display = 'none';
-            }
-        }
-    });
 
     // Funcionalidad para cambiar modos claro/oscuro
     modeSwitch.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        // Aquí puedes cambiar las variables de CSS si es necesario
     });
 });
