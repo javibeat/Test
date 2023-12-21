@@ -68,6 +68,11 @@ body {
 
 /* Estilos para mobile */
 @media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
   .menu-container {
       display: flex;
       flex-direction: column;
