@@ -6,7 +6,13 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-body {
+.dark-mode {
+background: #333; / Fondo oscuro /
+color: white; / Texto claro
+}
+
+html, body {
+  height: 100%; /* Asegurar que el html y body ocupen todo el alto disponible */
   background: #f0f0f0; /* Color de fondo para modo claro */
 }
 
@@ -18,6 +24,16 @@ body {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
   backdrop-filter: blur(10px);
+  min-height: calc(100vh - 40px); /* Altura mínima para que el footer quede abajo */
+}
+
+/* Estilos para el Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Estilos para Escritorio */
@@ -25,15 +41,25 @@ body {
   .sideBar {
       width: 350px;
       float: left;
+      background: rgba(255, 255, 255, 0.7); /* Efecto glasmorphism */
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      margin-right: 10px; /* Espacio entre sidebar y mainContent */
   }
 
   .mainContent {
-      width: calc(100% - 350px);
-      float: left; /* Cambiado a 'left' para estar a la derecha del sidebar */
+      width: calc(100% - 360px); /* Ajuste para el espacio entre sidebar y mainContent */
+      float: left;
   }
 
   .menu-hamburger {
       display: none; /* Ocultar en escritorio */
+  }
+
+  .menu-container a {
+      text-decoration: none; /* Quitar subrayado */
+      color: black; /* Color del texto */
+      display: block; /* Asegurar que estén en vertical */
   }
 }
 
@@ -57,15 +83,21 @@ body {
 }
 
 .logo img {
-  width: 100%;
-  border-radius: 50%;
+  max-width: 100%; /* Asegura que el logo no sea más grande que su contenedor */
+  height: auto;
+  border-radius: 10px; /* Si el logo debe tener bordes redondeados */
 }
 
-.social i, .mode i {
+.social i {
   display: inline-block;
   margin: 5px;
-  border-radius: 50%;
-  /* Agregar más estilos para iconos */
+  width: 40px; /* Tamaño de los iconos */
+  height: 40px;
+  line-height: 40px; /* Centrar el icono verticalmente */
+  text-align: center;
+  border-radius: 50%; /* Hacerlos completamente redondos */
+  background: #ddd; /* Fondo gris para visualizar los círculos */
+  color: black;
 }
 
 /* Estilos para el Main Content */
@@ -81,16 +113,5 @@ body {
   margin: 5px;
   background: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  /* Agregar más estilos para las cards */
-}
-
-/* Modos Claro y Oscuro */
-.dark-mode {
-  background: #333; /* Fondo oscuro */
-  color: white; /* Texto claro */
-}
-
-/* Estilos adicionales para el menú de hamburguesa */
-.expanded .menu-container {
-  display: block;
+  border-radius: 10px; /* Bordes redondeados para las cards */
 }
