@@ -45,8 +45,10 @@ body {
   margin: 20px;
 }
 
-/* Estilos existentes */
-
+.menu-container {
+  display: flex;
+  flex-direction: column;
+}
 /* Estilos para desktop */
 .menu-container {
   display: none;
