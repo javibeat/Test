@@ -1,24 +1,32 @@
 // Función para cambiar entre modo claro y oscuro
 function toggleMode() {
     var body = document.body;
-    // Alternar las clases para el modo
-    body.classList.toggle("light-mode");
-    body.classList.toggle("dark-mode");
+    var modeIcon = document.getElementById('mode-icon');
 
-    // Guardar la preferencia en localStorage
-    if (body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark-mode");
+    body.classList.toggle('light-mode');
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+        modeIcon.className = 'fas fa-moon';
+        localStorage.setItem('theme', 'dark-mode');
     } else {
-        localStorage.setItem("theme", "light-mode");
+        modeIcon.className = 'fas fa-sun';
+        localStorage.setItem('theme', 'light-mode');
     }
 }
 
 // Función para cargar el modo guardado
 function loadPreferredMode() {
-    var savedTheme = localStorage.getItem("theme");
+    var savedTheme = localStorage.getItem('theme');
+    var modeIcon = document.getElementById('mode-icon');
+    var body = document.body;
 
-    if (savedTheme) {
-        document.body.className = savedTheme;
+    if (savedTheme === 'dark-mode') {
+        body.className = 'dark-mode';
+        modeIcon.className = 'fas fa-moon';
+    } else {
+        body.className = 'light-mode';
+        modeIcon.className = 'fas fa-sun';
     }
 }
 
@@ -27,15 +35,12 @@ function loadMenu() {
     fetch('menu.html')
         .then(response => response.text())
         .then(data => {
-            var menuContainer = document.querySelector('.menu-container');
-            if(menuContainer) {
-                menuContainer.innerHTML = data;
-            }
+            document.querySelector('.menu-container').innerHTML = data;
         })
         .catch(err => console.error(err));
 }
 
-// Inicializar la carga del menú y el modo preferido
+// Evento para cargar el menú y el modo preferido al cargar el documento
 document.addEventListener('DOMContentLoaded', () => {
     loadMenu();
     loadPreferredMode();

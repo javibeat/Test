@@ -1,8 +1,13 @@
 :root {
-    --color-primary: #000000;
-    --color-primary-light: #ffffff;
-    --color-primary-grey: #454545;
-    --color-secondary: #f50d0d;
+    /* Colores para el modo claro */
+    --color-primary-light-mode: #ffffff;
+    --color-primary-grey-light-mode: #000000;
+    --color-secondary-light-mode: #f50d0d;
+
+    /* Colores para el modo oscuro */
+    --color-primary-dark-mode: #000000;
+    --color-primary-grey-dark-mode: #ffffff; /* Un gris más claro para el modo oscuro */
+    --color-secondary-dark-mode: #ffa500; /* Un color diferente para el modo oscuro si lo deseas */
 }
 
 * {
@@ -13,13 +18,17 @@
 }
 
 body.light-mode {
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
+    background-color: var(--color-primary-light-mode);
+    color: var(--color-primary-dark-mode);
+    --color-primary-grey: var(--color-primary-grey-light-mode);
+    --color-secondary: var(--color-secondary-light-mode);
 }
 
 body.dark-mode {
-    background-color: var(--color-primary);
-    color: var(--color-primary-light);
+    background-color: var(--color-primary-dark-mode);
+    color: var(--color-primary-light-mode);
+    --color-primary-grey: var(--color-primary-grey-dark-mode);
+    --color-secondary: var(--color-secondary-dark-mode);
 }
 
 .container {
@@ -40,11 +49,15 @@ body.dark-mode {
     border-radius: 10px;
 }
 
+.menu-container {
+    margin: 40px 0;
+}
+
 .menu a {
     display: block;
     color: inherit;
     text-decoration: none;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .social a {
@@ -53,9 +66,17 @@ body.dark-mode {
     margin-right: 10px;
 }
 
+.mode-toggle {
+    cursor: pointer;
+    display: inline-block; /* O cualquier otro estilo que te guste */
+    /* Estilos adicionales aquí */
+}
+
 .mode .mode-toggle {
     display: flex;
     align-items: center;
+    cursor: pointer;
+    /* Añade estilos adicionales si necesitas */
 }
 
 .mode-toggle i {
@@ -79,12 +100,17 @@ body.dark-mode {
     width: 16px;
     height: 16px;
     background-color: var(--color-primary-light);
-    border-radius: 50%;
     transition: all 0.3s;
 }
 
 body.dark-mode .toggle-switch::before {
     left: 22px;
+}
+
+.fas {
+    font-size: 24px; /* Ajusta el tamaño según necesites */
+    color: var(--color-secondary); /* Ajusta el color si es necesario */
+    transition: color 0.3s; /* Suaviza la transición de color */
 }
 
 .mainContent {
@@ -96,7 +122,7 @@ body.dark-mode .toggle-switch::before {
 }
 
 .card {
-    background-color: var(--color-primary-grey);
+    background-color: var(--color-primary-grey); /* Ahora se actualizará según el modo */
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -128,6 +154,16 @@ body.dark-mode .toggle-switch::before {
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu a {
+        margin: auto;
+        align-items: center;
     }
 
     .sidebar,
