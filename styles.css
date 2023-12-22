@@ -1,13 +1,54 @@
-/* Definiendo colores base */
+/* Definiendo colores base y colores de iconos específicos */
 :root {
   --background-color: #fff;
   --text-color: #000;
+  --icon-bg-color-dark: #fff; /* Fondo del icono para modo oscuro */
+  --icon-color-dark: #000; /* Color del icono para modo oscuro */
+  --icon-bg-color-light: #000; /* Fondo del icono para modo claro */
+  --icon-color-light: #fff; /* Color del icono para modo claro */
+  /* Resto de tus variables CSS */
+}
+
+/* Aplica estilos específicos para el modo claro */
+body:not(.dark-mode) .social .fab {
+  color: var(--icon-color-light);
+  background-color: var(--icon-bg-color-light);
+}
+
+/* Aplica estilos específicos para el modo oscuro */
+body.dark-mode .social .fab {
+  color: var(--icon-color-dark);
+  background-color: var(--icon-bg-color-dark);
 }
 
 /* Estilos para el modo oscuro */
 body.dark-mode {
   --background-color: #000;
   --text-color: #fff;
+}
+
+body:not(.dark-mode) .mode {
+  background-color: var(--icon-bg-color-light);
+  color: var(--icon-color-light);
+}
+
+/* Aplica estilos específicos para el modo oscuro */
+body.dark-mode .mode {
+  background-color: var(--icon-bg-color-dark);
+  color: var(--icon-color-dark);
+}
+
+/* Estilos comunes para el icono de modo */
+.mode {
+  border-radius: 50%;
+  padding: 10px; /* Ajusta el tamaño del círculo alrededor del icono */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Ajusta el ancho del área clickeable del icono */
+  height: 30px; /* Ajusta la altura del área clickeable del icono */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios de modo */
+  cursor: pointer; /* Cambia el cursor a puntero para indicar clickeabilidad */
 }
 
 body {
@@ -56,7 +97,7 @@ body {
 .menu a {
   text-decoration: none;
   color: var(--text-color);
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 .icons {
@@ -65,11 +106,17 @@ body {
   justify-content: space-between;
 }
 
+/* Estilos comunes para los iconos sociales */
 .social .fab {
-  color: var(--text-color);
-  background-color: var(--background-color);
   border-radius: 50%;
-  margin: 0 20px 0 0;
+  padding: 10px; /* Ajusta el tamaño del círculo alrededor del icono */
+  margin: 0 10px 0 0; /* Ajusta el margen entre iconos */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Ajusta el ancho del área clickeable del icono */
+  height: 30px; /* Ajusta la altura del área clickeable del icono */
+  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios de modo */
 }
 
 .mainContent {
@@ -160,16 +207,6 @@ body {
     /* Elimina el padding superior */
     padding-bottom: 0;
     /* Elimina el padding inferior */
-  }
-
-  .menu a {
-    padding: 8px 0;
-    /* Ajusta este valor si es necesario para el espaciado vertical */
-  }
-
-  .menu a:last-child {
-    margin-bottom: 0;
-    /* Elimina el margen inferior del último enlace */
   }
 
   .sideBar.expanded .menu-container {
