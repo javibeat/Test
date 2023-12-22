@@ -6,7 +6,6 @@
   --icon-color-dark: #000; /* Color del icono para modo oscuro */
   --icon-bg-color-light: #000; /* Fondo del icono para modo claro */
   --icon-color-light: #fff; /* Color del icono para modo claro */
-  /* Resto de tus variables CSS */
 }
 
 /* Aplica estilos específicos para el modo claro */
@@ -74,6 +73,7 @@ body {
 .sideBar {
   display: flex;
   flex-direction: column;
+  width: 350px;
   max-width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -121,48 +121,48 @@ body {
 
 .mainContent {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  /* Crea columnas que respondan al tamaño del contenedor */
-  grid-auto-rows: minmax(100px, auto);
-  /* Las filas tienen un mínimo de 100px y se ajustan al contenido */
-  grid-gap: 10px;
-  /* Espacio entre elementos de la cuadrícula */
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 20px;
   align-items: start;
-  /* Alineación de los elementos al comienzo de la celda de la cuadrícula */
-  padding: 10px;
-  max-width: 850px;
-  align-items: center;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 10px;
-  /* Espacio alrededor del contenido dentro del mainContent */
+  justify-content: center;
+  padding: 20px;
 }
 
 .card {
   background-color: var(--background-color);
+  color: var(--text-color);
   border: 1px solid #ccc;
-  /* Borde ligero para las tarjetas */
   border-radius: 5px;
-  /* Bordes redondeados para las tarjetas */
-  padding: 15px;
-  /* Espaciado interno para las tarjetas */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* Clases adicionales para tarjetas de diferentes tamaños */
-.card--wide {
-  /* Ocupa dos columnas */
+/* Tarjeta cuadrada pequeña */
+.card--small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Tarjeta horizontal que ocupa el espacio de dos tarjetas cuadradas */
+.card--horizontal {
   grid-column: span 2;
+  grid-row: span 1;
 }
 
-.card--tall {
-  /* Ocupa dos filas */
+/* Tarjeta cuadrada grande que ocupa el espacio de cuatro tarjetas cuadradas pequeñas */
+.card--large {
+  grid-column: span 2;
   grid-row: span 2;
 }
 
-.card--big {
-  /* Ocupa dos columnas y dos filas */
-  grid-column: span 2;
-  grid-row: span 2;
+/* Tarjeta estilo barra, más fina y larga */
+.card--bar {
+  grid-column: span 4;
+  grid-row: span 1;
 }
 
 /* Estilos para mobile */
@@ -217,10 +217,11 @@ body {
   }
 
   .mainContent {
-    width: 100%;
-    /* Ocupa el ancho completo */
-    transition: transform 0.3s ease;
-    /* Transición suave para el movimiento hacia abajo */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .card--horizontal, .card--large, .card--bar {
+    grid-column: span auto;
   }
 }
 
@@ -232,4 +233,6 @@ footer {
   width: 100%;
   align-items: center;
   justify-content: center;
+  background-color: var(--background-color); /* Color de fondo del footer */
+  padding: 20px; /* Ajusta el padding del footer */
 }
