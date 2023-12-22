@@ -54,8 +54,10 @@ body {
 }
 
 .menu a {
-  text-decoration: none; /* No decoración en enlaces */
-  color: var(--text-color); /* El color cambiará según el modo */
+  text-decoration: none;
+  /* No decoración en enlaces */
+  color: var(--text-color);
+  /* El color cambiará según el modo */
   margin-bottom: 5px;
 }
 
@@ -92,8 +94,10 @@ body {
 
   .sideBar {
     position: relative;
-    max-width: 100%;
-    padding: 20px;
+    width: 100%;
+    /* Puede que necesites ajustar esto según tu diseño */
+    transition: all 0.3s;
+    /* Una transición suave para la expansión */
   }
 
   .resp {
@@ -103,15 +107,19 @@ body {
   }
 
   .menu-hamburger {
-    display: block; /* Mostrar el menú hamburguesa en móviles */
+    display: block;
+    /* Mostrar el menú hamburguesa en móviles */
   }
 
   .menu {
-    position: absolute; /* Posicionamiento absoluto para el menú */
-    top: 100%; /* Ubicar el menú justo debajo del icono hamburguesa */
+    position: absolute;
+    /* Posicionamiento absoluto para el menú */
+    top: 100%;
+    /* Ubicar el menú justo debajo del icono hamburguesa */
     left: 0;
     right: 0;
-    display: none; /* Comienza oculto */
+    display: none;
+    /* Comienza oculto */
   }
 
   .menu a {
@@ -119,13 +127,13 @@ body {
   }
 
   .sideBar.expanded .menu {
-    display: flex; /* Mostrar el menú cuando el sidebar está expandido */
+    display: flex;
+    /* Mostrar el menú cuando el sidebar está expandido */
   }
 
   .sideBar {
     /* Asegurarse de que el sidebar se expanda adecuadamente */
-    width: 100%; /* Puede que necesites ajustar esto según tu diseño */
-    transition: all 0.3s; /* Una transición suave para la expansión */
+
   }
 }
 

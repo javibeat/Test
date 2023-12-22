@@ -6,21 +6,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para cambiar el icono de modo y guardar preferencia
     function toggleDarkMode() {
-        const isDarkMode = document.body.classList.toggle('dark-mode');
+        document.body.classList.toggle('dark-mode');
+        let isDarkMode = document.body.classList.contains('dark-mode');
         localStorage.setItem('darkMode', isDarkMode);
-        modeSwitch.className = isDarkMode ? 'mode fas fa-sun' : 'mode fas fa-moon';
+        // Aquí se actualiza el icono según el estado del modo oscuro
+        modeSwitch.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
     }
 
     // Establecer el modo y el icono inicial al cargar la página
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    document.body.classList.toggle('dark-mode', isDarkMode);
-    modeSwitch.className = isDarkMode ? 'mode fas fa-sun' : 'mode fas fa-moon';
+    function setInitialMode() {
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        modeSwitch.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+    }
 
+    setInitialMode();
     modeSwitch.addEventListener('click', toggleDarkMode);
 
     menuHamburger.addEventListener('click', () => {
         sideBar.classList.toggle('expanded');
-        menuContainer.style.display = sideBar.classList.contains('expanded') ? 'block' : 'none';
+        // Esto es para alternar la visualización del menú y desplazar el contenido hacia abajo
+        if (sideBar.classList.contains('expanded')) {
+            menuContainer.style.display = 'block';
+            document.querySelector('.mainContent').style.transform = 'translateY(' + menuContainer.offsetHeight + 'px)';
+        } else {
+            menuContainer.style.display = 'none';
+            document.querySelector('.mainContent').style.transform = 'none';
+        }
     });
 
     // Cargar el menú desde menu.html
