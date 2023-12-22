@@ -33,10 +33,11 @@ body {
 .sideBar {
   display: flex;
   flex-direction: column;
-  max-width: 350px;
+  max-width: 100%;
   height: 100%;
   border-radius: 10px;
   margin: 20px;
+  background-color: antiquewhite;
 }
 
 .logo {
@@ -55,9 +56,7 @@ body {
 
 .menu a {
   text-decoration: none;
-  /* No decoración en enlaces */
   color: var(--text-color);
-  /* El color cambiará según el modo */
   margin-bottom: 5px;
 }
 
@@ -81,6 +80,7 @@ body {
   align-items: center;
   border-radius: 10px;
   margin: 20px;
+  background-color: aliceblue;
 }
 
 /* Estilos para mobile */
@@ -89,15 +89,14 @@ body {
     display: flex;
     flex-direction: column;
     margin: 20px;
-    align-items: center;
+    align-items: start;
   }
 
   .sideBar {
     position: relative;
     width: 100%;
-    /* Puede que necesites ajustar esto según tu diseño */
+    padding: 20px;
     transition: all 0.3s;
-    /* Una transición suave para la expansión */
   }
 
   .resp {
@@ -108,40 +107,45 @@ body {
 
   .menu-hamburger {
     display: block;
-    /* Mostrar el menú hamburguesa en móviles */
+    z-index: 2; /* Asegura que el menú hamburguesa esté por encima del menú desplegable */
   }
 
-  .menu {
-    position: absolute;
-    /* Posicionamiento absoluto para el menú */
-    top: 100%;
-    /* Ubicar el menú justo debajo del icono hamburguesa */
-    left: 0;
-    right: 0;
-    display: none;
-    /* Comienza oculto */
+  .menu-container {
+    display: none; /* Mantén el menú oculto inicialmente */
+    width: 100%; /* El menú debe ocupar el ancho completo del sidebar */
+    background: var(--background-color); /* Fondo del menú */
+    position: static; /* Posición estática para mover el contenido hacia abajo */
+    order: 2; /* Asegura que el menú se muestra después de la cabecera */
+    padding-top: 0; /* Elimina el padding superior */
+    padding-bottom: 0; /* Elimina el padding inferior */
   }
 
   .menu a {
-    margin: 5px;
+    padding: 8px 0; /* Ajusta este valor si es necesario para el espaciado vertical */
   }
 
-  .sideBar.expanded .menu {
-    display: flex;
-    /* Mostrar el menú cuando el sidebar está expandido */
+  .menu a:last-child {
+    margin-bottom: 0; /* Elimina el margen inferior del último enlace */
   }
 
-  .sideBar {
-    /* Asegurarse de que el sidebar se expanda adecuadamente */
+  .sideBar.expanded .menu-container {
+    display: flex; /* Muestra el menú cuando el sidebar está expandido */
+    flex-direction: column; /* Orientación vertical de los elementos del menú */
+  }
 
+  .mainContent {
+    order: 3; /* Asegura que el contenido principal se muestra después del menú */
+    width: 100%; /* Ocupa el ancho completo */
+    transition: transform 0.3s ease; /* Transición suave para el movimiento hacia abajo */
   }
 }
 
 /*--FOOTER--*/
-
 footer {
   display: flex;
   position: fixed;
+  bottom: 0;
+  width: 100%;
   align-items: center;
-  margin: auto;
+  justify-content: center;
 }
