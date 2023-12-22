@@ -37,7 +37,6 @@ body {
   height: 100%;
   border-radius: 10px;
   margin: 20px;
-  background-color: antiquewhite;
 }
 
 .logo {
@@ -74,13 +73,49 @@ body {
 }
 
 .mainContent {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* Crea columnas que respondan al tamaño del contenedor */
+  grid-auto-rows: minmax(100px, auto);
+  /* Las filas tienen un mínimo de 100px y se ajustan al contenido */
+  grid-gap: 10px;
+  /* Espacio entre elementos de la cuadrícula */
+  align-items: start;
+  /* Alineación de los elementos al comienzo de la celda de la cuadrícula */
+  padding: 10px;
   max-width: 850px;
   align-items: center;
   border-radius: 10px;
   margin: 20px;
-  background-color: aliceblue;
+  padding: 10px;
+  /* Espacio alrededor del contenido dentro del mainContent */
+}
+
+.card {
+  background-color: var(--background-color);
+  border: 1px solid #ccc;
+  /* Borde ligero para las tarjetas */
+  border-radius: 5px;
+  /* Bordes redondeados para las tarjetas */
+  padding: 15px;
+  /* Espaciado interno para las tarjetas */
+}
+
+/* Clases adicionales para tarjetas de diferentes tamaños */
+.card--wide {
+  /* Ocupa dos columnas */
+  grid-column: span 2;
+}
+
+.card--tall {
+  /* Ocupa dos filas */
+  grid-row: span 2;
+}
+
+.card--big {
+  /* Ocupa dos columnas y dos filas */
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 /* Estilos para mobile */
@@ -106,35 +141,49 @@ body {
 
   .menu-hamburger {
     display: block;
-    z-index: 2; /* Asegura que el menú hamburguesa esté por encima del menú desplegable */
+    z-index: 2;
+    /* Asegura que el menú hamburguesa esté por encima del menú desplegable */
   }
 
   .menu-container {
-    display: none; /* Mantén el menú oculto inicialmente */
-    width: 100%; /* El menú debe ocupar el ancho completo del sidebar */
-    background: var(--background-color); /* Fondo del menú */
-    position: static; /* Posición estática para mover el contenido hacia abajo */
-    order: 2; /* Asegura que el menú se muestra después de la cabecera */
-    padding-top: 0; /* Elimina el padding superior */
-    padding-bottom: 0; /* Elimina el padding inferior */
+    display: none;
+    /* Mantén el menú oculto inicialmente */
+    width: 100%;
+    /* El menú debe ocupar el ancho completo del sidebar */
+    background: var(--background-color);
+    /* Fondo del menú */
+    position: static;
+    /* Posición estática para mover el contenido hacia abajo */
+    order: 2;
+    /* Asegura que el menú se muestra después de la cabecera */
+    padding-top: 0;
+    /* Elimina el padding superior */
+    padding-bottom: 0;
+    /* Elimina el padding inferior */
   }
 
   .menu a {
-    padding: 8px 0; /* Ajusta este valor si es necesario para el espaciado vertical */
+    padding: 8px 0;
+    /* Ajusta este valor si es necesario para el espaciado vertical */
   }
 
   .menu a:last-child {
-    margin-bottom: 0; /* Elimina el margen inferior del último enlace */
+    margin-bottom: 0;
+    /* Elimina el margen inferior del último enlace */
   }
 
   .sideBar.expanded .menu-container {
-    display: flex; /* Muestra el menú cuando el sidebar está expandido */
-    flex-direction: column; /* Orientación vertical de los elementos del menú */
+    display: flex;
+    /* Muestra el menú cuando el sidebar está expandido */
+    flex-direction: column;
+    /* Orientación vertical de los elementos del menú */
   }
 
   .mainContent {
-    width: 100%; /* Ocupa el ancho completo */
-    transition: transform 0.3s ease; /* Transición suave para el movimiento hacia abajo */
+    width: 100%;
+    /* Ocupa el ancho completo */
+    transition: transform 0.3s ease;
+    /* Transición suave para el movimiento hacia abajo */
   }
 }
 
