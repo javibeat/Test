@@ -86,10 +86,9 @@ body {
 /* Estilos para mobile */
 @media screen and (max-width: 768px) {
   .container {
-    display: flex;
     flex-direction: column;
     margin: 20px;
-    align-items: start;
+    align-items: center;
   }
 
   .sideBar {
@@ -134,7 +133,6 @@ body {
   }
 
   .mainContent {
-    order: 3; /* Asegura que el contenido principal se muestra después del menú */
     width: 100%; /* Ocupa el ancho completo */
     transition: transform 0.3s ease; /* Transición suave para el movimiento hacia abajo */
   }

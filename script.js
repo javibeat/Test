@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.toggle('dark-mode');
         let isDarkMode = document.body.classList.contains('dark-mode');
         localStorage.setItem('darkMode', isDarkMode);
-        // Aquí se actualiza el icono según el estado del modo oscuro
-        modeSwitch.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+        // Actualiza el icono del interruptor de modo
+        modeSwitch.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
 
     // Establecer el modo y el icono inicial al cargar la página
     function setInitialMode() {
         let isDarkMode = localStorage.getItem('darkMode') === 'true';
         document.body.classList.toggle('dark-mode', isDarkMode);
-        modeSwitch.className = isDarkMode ? 'fas fa-sun' : 'fas fa-moon';
+        modeSwitch.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
     }
 
     setInitialMode();
@@ -25,14 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuHamburger.addEventListener('click', () => {
         sideBar.classList.toggle('expanded');
-        // Esto es para alternar la visualización del menú y desplazar el contenido hacia abajo
-        if (sideBar.classList.contains('expanded')) {
-            menuContainer.style.display = 'block';
-            document.querySelector('.mainContent').style.transform = 'translateY(' + menuContainer.offsetHeight + 'px)';
-        } else {
-            menuContainer.style.display = 'none';
-            document.querySelector('.mainContent').style.transform = 'none';
-        }
+        menuContainer.style.display = sideBar.classList.contains('expanded') ? 'block' : 'none';
+        // Aquí puedes ajustar cómo afecta la expansión del menú al resto del contenido
+        // Por ejemplo, ajustar el padding o margen del contenido principal
     });
 
     // Cargar el menú desde menu.html
