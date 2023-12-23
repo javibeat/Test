@@ -131,45 +131,51 @@ body {
 
 .mainContent {
   display: grid;
-  width: 850px;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-  grid-auto-rows: 100px; /* Altura fija para todas las filas */
-  gap: 20px; /* Espaciado entre tarjetas */
+  grid-gap: 20px; /* Espaciado entre tarjetas */
   padding: 20px;
+  align-items: start; /* Alineación de los elementos al comienzo */
+  justify-items: center; /* Centrado horizontal de las tarjetas */
 }
 
 .card {
-  background-color: var(--card-background-color);
+  border: 1px solid var(--card-border-color-light);
   border-radius: var(--card-border-radius);
-  padding: 10px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  transition: background-color 0.3s, border 0.3s; /* Transición suave para cambios de estilo */
 }
 
-/* Tarjeta cuadrada */
+/* Tamaños fijos para las tarjetas */
 .card--square {
-  grid-column-end: span 1;
-  grid-row-end: span 1;
+  grid-column: span 1;
+  grid-row: span 1;
+  width: 200px; /* Ancho fijo */
+  height: 200px; /* Alto fijo */
 }
 
-/* Tarjeta horizontal */
-.card--horizontal {
-  grid-column-end: span 2;
-  grid-row-end: span 1;
+.card--wide {
+  grid-column: span 2;
+  grid-row: span 1;
+  width: calc((400px + 20px) - 1px); /* Ancho fijo más el gap menos 1px del borde */
+  height: 200px; /* Alto fijo */
 }
 
-/* Tarjeta grande */
-.card--large {
-  grid-column-end: span 2;
-  grid-row-end: span 2;
+.card--tall {
+  grid-column: span 1;
+  grid-row: span 2;
+  width: 200px; /* Ancho fijo */
+  height: calc((400px + 20px) - 1px); /* Alto fijo más el gap menos 1px del borde */
 }
 
-/* Tarjeta barra */
-.card--bar {
-  grid-column-end: span 4;
-  grid-row-end: span 1;
+.card--big {
+  grid-column: span 2;
+  grid-row: span 2;
+  width: calc((400px + 20px) - 1px); /* Ancho fijo más el gap menos 1px del borde */
+  height: calc((400px + 20px) - 1px); /* Alto fijo más el gap menos 1px del borde */
 }
 
 /* Estilos para mobile */
@@ -224,15 +230,21 @@ body {
   }
 
   .mainContent {
-    grid-template-columns: repeat(1, 1fr); /* 2 columnas para dispositivos móviles */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para móviles */
+    grid-gap: 10px; /* Menor espaciado para móviles */
   }
 
-  .card {
-    margin: 10px;
+  .card--square,
+  .card--wide,
+  .card--tall,
+  .card--big {
+    width: calc(50vw - 30px); /* Ancho basado en el ancho de la vista */
+    height: calc(50vw - 30px); /* Alto basado en el ancho de la vista para mantener la proporción */
   }
 
-  .card--bar {
-    grid-column-end: span 2; /* Ajuste para que la tarjeta barra ocupe todo el ancho en móviles */
+  .card--wide,
+  .card--big {
+    grid-column: span 2; /* Ajuste para que ocupen todo el ancho disponible */
   }
 }
 
