@@ -6,6 +6,9 @@
   --icon-color-dark: #000; /* Color del icono para modo oscuro */
   --icon-bg-color-light: #000; /* Fondo del icono para modo claro */
   --icon-color-light: #fff; /* Color del icono para modo claro */
+  --card-border-color-dark: #333; /* Borde de la tarjeta para modo oscuro */
+  --card-border-color-light: #ccc; /* Borde de la tarjeta para modo claro */
+  --card-border-radius: 15px; /* Radio del borde de la tarjeta */
 }
 
 /* Aplica estilos específicos para el modo claro */
@@ -35,6 +38,14 @@ body:not(.dark-mode) .mode {
 body.dark-mode .mode {
   background-color: var(--icon-bg-color-dark);
   color: var(--icon-color-dark);
+}
+
+body:not(.dark-mode) .card {
+  border: 1px solid var(--card-border-color-light);
+}
+
+body.dark-mode .card {
+  border: 1px solid var(--card-border-color-dark);
 }
 
 /* Estilos comunes para el icono de modo */
@@ -76,7 +87,6 @@ body {
   width: 350px;
   max-width: 100%;
   height: 100%;
-  border-radius: 10px;
   margin: 20px;
 }
 
@@ -121,49 +131,45 @@ body {
 
 .mainContent {
   display: grid;
-  width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 20px;
-  align-items: start;
-  justify-content: center;
+  width: 850px;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  grid-auto-rows: 100px; /* Altura fija para todas las filas */
+  gap: 20px; /* Espaciado entre tarjetas */
   padding: 20px;
 }
 
 .card {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
+  background-color: var(--card-background-color);
+  border-radius: var(--card-border-radius);
+  padding: 10px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  text-align: center;
 }
 
-/* Tarjeta cuadrada pequeña */
-.card--small {
-  grid-column: span 1;
-  grid-row: span 1;
+/* Tarjeta cuadrada */
+.card--square {
+  grid-column-end: span 1;
+  grid-row-end: span 1;
 }
 
-/* Tarjeta horizontal que ocupa el espacio de dos tarjetas cuadradas */
+/* Tarjeta horizontal */
 .card--horizontal {
-  grid-column: span 2;
-  grid-row: span 1;
+  grid-column-end: span 2;
+  grid-row-end: span 1;
 }
 
-/* Tarjeta cuadrada grande que ocupa el espacio de cuatro tarjetas cuadradas pequeñas */
+/* Tarjeta grande */
 .card--large {
-  grid-column: span 2;
-  grid-row: span 2;
+  grid-column-end: span 2;
+  grid-row-end: span 2;
 }
 
-/* Tarjeta estilo barra, más fina y larga */
+/* Tarjeta barra */
 .card--bar {
-  grid-column: span 4;
-  grid-row: span 1;
+  grid-column-end: span 4;
+  grid-row-end: span 1;
 }
 
 /* Estilos para mobile */
@@ -218,11 +224,15 @@ body {
   }
 
   .mainContent {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(1, 1fr); /* 2 columnas para dispositivos móviles */
   }
 
-  .card--horizontal, .card--large, .card--bar {
-    grid-column: span auto;
+  .card {
+    margin: 10px;
+  }
+
+  .card--bar {
+    grid-column-end: span 2; /* Ajuste para que la tarjeta barra ocupe todo el ancho en móviles */
   }
 }
 
