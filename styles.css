@@ -181,9 +181,10 @@ body {
 /* Estilos para mobile */
 @media screen and (max-width: 768px) {
   .container {
+    /* Ajustes para el contenedor principal */
     flex-direction: column;
-    margin: 20px;
     align-items: center;
+    padding: 0 10px; /* Agrega padding a los lados para evitar que el contenido toque los bordes */
   }
 
   .sideBar {
@@ -230,21 +231,34 @@ body {
   }
 
   .mainContent {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas para móviles */
-    grid-gap: 10px; /* Menor espaciado para móviles */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas para dispositivos móviles */
+    gap: 20px; /* Espacio entre tarjetas */
+    justify-items: center; /* Centra las tarjetas en las columnas */
+    padding: 20px 0; /* Espacio arriba y abajo */
   }
 
-  .card--square,
-  .card--wide,
-  .card--tall,
-  .card--big {
-    width: calc(50vw - 30px); /* Ancho basado en el ancho de la vista */
-    height: calc(50vw - 30px); /* Alto basado en el ancho de la vista para mantener la proporción */
+  .card {
+    width: calc(50% - 20px); /* Ancho de tarjeta ajustado al nuevo gap */
+    height: auto; /* Altura automática para contenido variable */
+    margin-bottom: 20px; /* Espacio debajo de cada tarjeta */
+  }
+
+  .card--square {
+    /* Las tarjetas cuadradas deben ser ajustadas si queremos una proporción específica */
+    width: calc(50vw - 20px); /* 50% del ancho de la ventana gráfica menos el gap */
+    height: calc(50vw - 20px); /* Altura igual al ancho para mantener la proporción cuadrada */
   }
 
   .card--wide,
   .card--big {
-    grid-column: span 2; /* Ajuste para que ocupen todo el ancho disponible */
+    grid-column: span 2; /* Estas tarjetas ocuparán el ancho completo de las dos columnas */
+    width: calc(100vw - 40px); /* 100% del ancho de la ventana gráfica menos los paddings laterales */
+    height: calc(50vw - 20px); /* Altura basada en el ancho para mantener la proporción */
+  }
+
+  /* Si tienes tarjetas que deben ser más altas que anchas (como tarjetas 'tall'), debes establecer una altura fija o calcularla */
+  .card--tall {
+    height: calc(100vw - 40px); /* Altura doble del ancho para las tarjetas 'tall' */
   }
 }
 
