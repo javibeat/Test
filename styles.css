@@ -79,6 +79,7 @@ body {
   align-items: center;
   margin: auto;
   max-width: 1200px;
+  margin-bottom: 50px;
 }
 
 .sideBar {
