@@ -229,32 +229,36 @@ body {
     flex-direction: column;
     /* Orientación vertical de los elementos del menú */
   }
-
-  .mainContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
+  
+    .mainContent {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(calc(50vw - 20px), 1fr));
+      gap: 10px;
+      justify-content: center;
+      align-items: start;
+    }
+  
+    .card {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  
+    /* Asegurarse de que las tarjetas cuadradas y las horizontales mantengan su proporción */
+    .card--square,
+    .card--wide {
+      height: calc(50vw - 20px); /* Altura igual al ancho para tarjetas cuadradas */
+    }
+  
+    .card--tall {
+      height: calc(100vw - 40px); /* Doble de la altura de una tarjeta cuadrada */
+    }
+  
+    .card--big {
+      grid-column: span 2; /* Ocupará el espacio de dos tarjetas cuadradas */
+      height: calc(100vw - 40px); /* Doble de la altura de una tarjeta cuadrada */
+    }
   }
-
-  .card {
-    width: calc(100% - 30px); /* Restar el padding del mainContent para obtener el ancho completo */
-    margin-bottom: 15px; /* Espacio entre tarjetas */
-  }
-
-  .card--square,
-  .card--wide {
-    height: calc((100vw - 60px) / 2); /* Ancho menos el padding para dos tarjetas cuadradas pequeñas */
-  }
-
-  .card--tall {
-    height: calc(100vw - 60px); /* Ancho menos el padding para una tarjeta vertical que ocupa el lugar de dos cuadradas */
-  }
-
-  .card--big {
-    height: calc((100vw - 60px) / 2); /* Ancho menos el padding para una tarjeta grande que ocupa el lugar de cuatro cuadradas */
-  }
-}
 
 /*--FOOTER--*/
 footer {
