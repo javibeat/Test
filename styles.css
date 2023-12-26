@@ -245,7 +245,6 @@ body {
   }
 
   .card--square {
-    /* Las tarjetas cuadradas deben ser ajustadas si queremos una proporción específica */
     width: calc(50vw - 20px); /* 50% del ancho de la ventana gráfica menos el gap */
     height: calc(50vw - 20px); /* Altura igual al ancho para mantener la proporción cuadrada */
   }
@@ -257,9 +256,10 @@ body {
     height: calc(50vw - 20px); /* Altura basada en el ancho para mantener la proporción */
   }
 
-  /* Si tienes tarjetas que deben ser más altas que anchas (como tarjetas 'tall'), debes establecer una altura fija o calcularla */
   .card--tall {
-    height: calc(100vw - 40px); /* Altura doble del ancho para las tarjetas 'tall' */
+    grid-column: span 1; /* Ocupa el espacio de una columna */
+    width: calc(50vw - 20px); /* Ancho igual a una tarjeta cuadrada */
+    height: calc(100vw - 40px); /* Altura doble del ancho para tarjetas 'tall' */
   }
 }
 
