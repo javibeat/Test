@@ -6,8 +6,8 @@
   --icon-color-dark: #000; /* Color del icono para modo oscuro */
   --icon-bg-color-light: #000; /* Fondo del icono para modo claro */
   --icon-color-light: #fff; /* Color del icono para modo claro */
-  --card-border-color-dark: #333; /* Borde de la tarjeta para modo oscuro */
-  --card-border-color-light: #ccc; /* Borde de la tarjeta para modo claro */
+  --card-border-color-dark: #fff; /* Borde de la tarjeta para modo oscuro */
+  --card-border-color-light: #000; /* Borde de la tarjeta para modo claro */
   --card-border-radius: 15px; /* Radio del borde de la tarjeta */
 }
 
@@ -244,7 +244,7 @@ body {
     height: auto; /* Altura automática para mantener la proporción del contenido */
     margin-bottom: 10px; /* Espacio debajo de cada tarjeta */
   }
-    
+
     /* Restablece los estilos específicos para las tarjetas que ya no se aplican en el diseño masonry */
     .card--square,
     .card--wide,
