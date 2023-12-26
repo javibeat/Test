@@ -229,34 +229,44 @@ body {
     flex-direction: column;
     /* Orientación vertical de los elementos del menú */
   }
-  
+
     .mainContent {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(calc(50vw - 20px), 1fr));
-      gap: 10px;
-      justify-content: center;
-      align-items: start;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 2;
+      column-gap: 10px;
+      width: 100%; /* Asegura que el mainContent ocupa todo el ancho */
     }
   
     .card {
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
+      break-inside: avoid-column; /* Evita que las tarjetas se rompan entre columnas */
+      width: 100%; /* Las tarjetas ocuparán todo el ancho de la columna */
+      margin-bottom: 10px; /* Espacio debajo de cada tarjeta */
     }
   
-    /* Asegurarse de que las tarjetas cuadradas y las horizontales mantengan su proporción */
-    .card--square,
     .card--wide {
-      height: calc(50vw - 20px); /* Altura igual al ancho para tarjetas cuadradas */
+      width: 100%; /* Las tarjetas anchas ocuparán todo el ancho de dos columnas */
+      margin-bottom: 10px; /* Espacio debajo de cada tarjeta */
+    }
+  
+    .card--square,
+    .card--tall,
+    .card--big {
+      width: auto;
+      height: auto;
+      grid-column-end: auto;
+      grid-row-end: auto;
+    }
+    
+    .card--wide, .card--big {
+      /* Ajusta para que las tarjetas anchas y grandes ocupen dos columnas */
+      -webkit-column-span: all; /* Chrome, Safari, Opera */
+      column-span: all; /* Firefox, IE, y otros navegadores */
     }
   
     .card--tall {
-      height: calc(100vw - 40px); /* Doble de la altura de una tarjeta cuadrada */
-    }
-  
-    .card--big {
-      grid-column: span 2; /* Ocupará el espacio de dos tarjetas cuadradas */
-      height: calc(100vw - 40px); /* Doble de la altura de una tarjeta cuadrada */
+      /* Asegura que las tarjetas verticales mantengan la proporción */
+      height: calc(100vw / 2 - 10px); /* 50% del ancho de la ventana gráfica menos el column-gap */
     }
   }
 
