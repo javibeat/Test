@@ -231,42 +231,41 @@ body {
   }
 
   .mainContent {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
-    gap: 20px; /* Espacio uniforme entre tarjetas y bordes */
-    padding: 10px; /* Padding alrededor del contenido para espacio hacia los bordes de la pantalla */
-    justify-content: center;
-    align-content: start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+    gap: 10px; /* Espacio entre tarjetas y bordes */
+    padding: 10px; /* Padding alrededor del contenido para no tocar los bordes de la pantalla */
   }
 
-  /* Estilo común para todas las tarjetas en móvil */
+  /* Estilos para todas las tarjetas */
   .card {
-    margin-bottom: 20px; /* Espacio uniforme debajo de cada tarjeta */
+    margin-bottom: 10px; /* Espacio uniforme debajo de cada tarjeta */
   }
 
-  /* Tarjetas cuadradas ocupan toda una columna con un espacio definido */
+  /* Tarjetas cuadradas */
   .card--square {
-    width: calc(50% - 30px); /* Ajusta el ancho al 50% del contenedor menos el espacio del gap y padding */
-    height: calc(50% - 30px); /* Mismo cálculo para la altura para mantener la proporción */
+    width: calc((100% - 30px) / 2); /* Ancho para dos tarjetas con espacio entre ellas */
+    height: calc((100% - 30px) / 2); /* Altura igual al ancho */
   }
 
-  /* Tarjetas horizontales ocupan dos columnas */
+  /* Tarjetas horizontales */
   .card--wide {
-    grid-column: span 2;
-    width: calc(100% - 30px); /* 100% del contenedor menos el espacio del gap y padding */
-    height: calc(50% - 30px); /* Ajusta la altura al 50% de una tarjeta cuadrada para mantener la proporción */
+    grid-column: span 2; /* Ocupan dos columnas */
+    width: calc(100% - 20px); /* Ancho total menos el padding */
+    height: calc((100% - 30px) / 2); /* Altura igual a una tarjeta cuadrada */
   }
 
-  /* Tarjetas verticales ocupan una columna pero su altura es el doble que una cuadrada */
+  /* Tarjetas verticales */
   .card--tall {
-    width: calc(50% - 30px); /* Igual ancho que una tarjeta cuadrada */
-    height: calc(100% - 50px); /* Doble altura menos el espacio del gap y padding */
+    width: calc((100% - 30px) / 2); /* Ancho igual a una tarjeta cuadrada */
+    height: calc(100% - 20px); /* Altura doble menos el padding */
   }
 
-  /* Tarjetas grandes ocupan dos columnas y su altura es el doble que una cuadrada */
+  /* Tarjetas grandes */
   .card--big {
-    grid-column: span 2;
-    width: calc(100% - 30px); /* Ajusta el ancho a todo el contenedor menos el espacio del gap y padding */
-    height: calc(100% - 50px); /* Doble altura menos el espacio del gap y padding */
+    grid-column: span 2; /* Ocupan dos columnas */
+    width: calc(100% - 20px); /* Ancho total menos el padding */
+    height: calc(100% - 20px); /* Altura doble menos el padding */
   }
 }
 
