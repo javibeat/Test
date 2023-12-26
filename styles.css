@@ -235,6 +235,7 @@ body {
     gap: 20px; /* Espacio entre tarjetas */
     justify-items: center; /* Centra las tarjetas en las columnas */
     padding: 20px 0; /* Espacio arriba y abajo */
+    margin-bottom: 50px;
   }
 
   .card {
