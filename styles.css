@@ -20,72 +20,77 @@ body {
     padding: 10px;
 }
 
-/*------menu-------*/
-.menu-container {
-    max-width: 1200px;
-    margin: 0 auto;
+/*----- MENÚ ------*/
+
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
+    justify-content: center;
+    max-width: 100%;
+    border-radius: 20px;
+    padding: 5px;
+    z-index: 15;
+    border: 1px solid rgba(225, 225, 225, 0.7);
+    backdrop-filter: blur(25px); /*important!!*/
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow: -10px 5px 10px rgba(10, 10, 10, 0.1);
+}
+
+.bottom-nav .nav-item.active {
+    color: var(--accent-color); 
+    background: #e4000036;
+    border-radius: 15px;
+    border: 0.5px solid var(--accent-color);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    z-index: 1;
-}
-
-.menu {
-    list-style-type: none;
-    display: flex;
-}
-
-.menu li {
-    margin: 0 10px;
-}
-
-.menu li a {
+    justify-content: center;
+    padding: 8px;
     text-decoration: none;
-    color: var(--text-color);
-    transition: color 0.5s;
+    color: black;
+    transition: color 0.3s; /* Transición suave para cambios de color */
 }
 
-.menu li a:hover {
-    background-color: var(--accent-color);
-    padding: 3px;
-    border-radius: 5px;
+/* Estilos para el elemento del menú activo */
+.nav-item.active {
+    color: var(--accent-color) !important; 
+    background: #e4000036 !important;
+    border-radius: 15px !important;
+    border: 0.5px solid var(--accent-color) !important;
 }
 
-@media screen and (max-width: 768px) {
 
-    body {
-        padding-top: 40px; /* Añade espacio en la parte superior para el logo */
-    }
-
-    .menu-container {
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 10px;
-        background: rgba(255, 255, 255, 0.1); /* Fondo blanco con baja opacidad */
-        backdrop-filter: blur(5px); /* Desenfoque aplicado al área detrás del contenedor */
-        -webkit-backdrop-filter: blur(5px); /* Para soporte en Safari */
-        border: 1px solid rgba(255, 255, 255, 0.25); /* Borde con transparencia */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 15px;
-        margin: 10px;
-        position: fixed;
-        bottom: 5px;
-        left: 0;
-        right: 0;
-    }
-
-    .logo {
-        display: block; /* Muestra el logo */
-        position: fixed; /* Fija la posición del logo */
-        top: 10px; /* Posición desde la parte superior */
-        left: 50%; /* Centra el logo horizontalmente */
-        transform: translateX(-50%); /* Ajuste fino para centrar exactamente el logo */
-        z-index: 2; /* Asegura que el logo esté por encima del menú */
-    }
-
-    .menu li a {
-        font-size: 10px; /* Ajusta el tamaño de la fuente si es necesario */
-    }
+.icon {
+    font-size: 24px;
 }
 
+.label {
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .nav-container {
+      justify-content: center;
+    }
+  }
+
+/*----- FIN MENÚ ------*/
+
+.page-section {
+    display: none; /* Oculta todas las secciones por defecto */
+    opacity: 0;
+    transition: opacity 0.5s; /* Transición suave para la opacidad */
+}
+
+.page-section.active-section {
+    display: block; /* Muestra solo la sección activa */
+    opacity: 1;
+}
