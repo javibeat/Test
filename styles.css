@@ -47,25 +47,51 @@ body {
     border: 0.5px solid var(--accent-color);
 }
 
+#menu-indicator {
+    position: absolute;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: 0;
+    transition: left 0.3s ease, width 0.3s ease; /* Transición suave para el movimiento y el cambio de tamaño */
+}
+
 .nav-item {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 8px;
     text-decoration: none;
-    color: black;
-    transition: color 0.3s; /* Transición suave para cambios de color */
+    color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 /* Estilos para el elemento del menú activo */
 .nav-item.active {
-    color: var(--accent-color) !important; 
-    background: #e4000036 !important;
-    border-radius: 15px !important;
-    border: 0.5px solid var(--accent-color) !important;
+    color: var(--accent-color); 
+    background: #e4000036;
+    border-radius: 15px;
+    border: 0.5px solid var(--accent-color);
 }
 
+.nav-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%; /* Inicialmente oculto */
+    bottom: 0;
+    background: #e4000036;
+    border-radius: 15px;
+    transition: right 0.3s ease, left 0.3s ease; /* Transición suave para el desplazamiento */
+    z-index: -1;
+}
+
+.nav-item.active::after {
+    right: 0; /* Mostrar completamente para el elemento activo */
+}
 
 .icon {
     font-size: 24px;
