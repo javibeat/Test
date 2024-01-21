@@ -1,284 +1,91 @@
-/* Definiendo colores base y colores de iconos específicos */
 :root {
-  --background-color: #fff;
-  --text-color: #000;
-  --icon-bg-color-dark: #fff; /* Fondo del icono para modo oscuro */
-  --icon-color-dark: #000; /* Color del icono para modo oscuro */
-  --icon-bg-color-light: #000; /* Fondo del icono para modo claro */
-  --icon-color-light: #fff; /* Color del icono para modo claro */
-  --card-border-color-dark: #fff; /* Borde de la tarjeta para modo oscuro */
-  --card-border-color-light: #000; /* Borde de la tarjeta para modo claro */
-  --card-border-radius: 15px; /* Radio del borde de la tarjeta */
-}
-
-/* Aplica estilos específicos para el modo claro */
-body:not(.dark-mode) .social .fab {
-  color: var(--icon-color-light);
-  background-color: var(--icon-bg-color-light);
-}
-
-/* Aplica estilos específicos para el modo oscuro */
-body.dark-mode .social .fab {
-  color: var(--icon-color-dark);
-  background-color: var(--icon-bg-color-dark);
-}
-
-/* Estilos para el modo oscuro */
-body.dark-mode {
-  --background-color: #000;
-  --text-color: #fff;
-}
-
-body:not(.dark-mode) .mode {
-  background-color: var(--icon-bg-color-light);
-  color: var(--icon-color-light);
-}
-
-/* Aplica estilos específicos para el modo oscuro */
-body.dark-mode .mode {
-  background-color: var(--icon-bg-color-dark);
-  color: var(--icon-color-dark);
-}
-
-body:not(.dark-mode) .card {
-  border: 1px solid var(--card-border-color-light);
-}
-
-body.dark-mode .card {
-  border: 1px solid var(--card-border-color-dark);
-}
-
-/* Estilos comunes para el icono de modo */
-.mode {
-  border-radius: 50%;
-  padding: 10px; /* Ajusta el tamaño del círculo alrededor del icono */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px; /* Ajusta el ancho del área clickeable del icono */
-  height: 30px; /* Ajusta la altura del área clickeable del icono */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios de modo */
-  cursor: pointer; /* Cambia el cursor a puntero para indicar clickeabilidad */
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
+    --primary-color: #000000;
+    --text-color: #ffffff;
+    --accent-color: #e40000;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'montserrat', Arial, Helvetica, sans-serif;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: auto;
-  max-width: 1200px;
-  margin-bottom: 50px;
+body {
+    background-color: var(--primary-color);
 }
 
-.sideBar {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  max-width: 100%;
-  height: 100%;
-  margin: 20px;
+.logo img {
+    max-width: 70px;
+    padding: 10px;
 }
 
-.logo {
-  margin: 0 0 20px 0;
-}
-
-.menu-hamburger {
-  display: none;
+/*------menu-------*/
+.menu-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    z-index: 1;
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+    list-style-type: none;
+    display: flex;
 }
 
-.menu a {
-  text-decoration: none;
-  color: var(--text-color);
-  margin-bottom: 15px;
+.menu li {
+    margin: 0 10px;
 }
 
-.icons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.menu li a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.5s;
 }
 
-/* Estilos comunes para los iconos sociales */
-.social .fab {
-  border-radius: 50%;
-  padding: 10px; /* Ajusta el tamaño del círculo alrededor del icono */
-  margin: 0 10px 0 0; /* Ajusta el margen entre iconos */
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px; /* Ajusta el ancho del área clickeable del icono */
-  height: 30px; /* Ajusta la altura del área clickeable del icono */
-  transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios de modo */
+.menu li a:hover {
+    background-color: var(--accent-color);
+    padding: 3px;
+    border-radius: 5px;
 }
 
-.mainContent {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
-  grid-gap: 20px; /* Espaciado entre tarjetas */
-  padding: 20px;
-  align-items: start; /* Alineación de los elementos al comienzo */
-  justify-items: center; /* Centrado horizontal de las tarjetas */
-}
-
-.card {
-  border: 1px solid var(--card-border-color-light);
-  border-radius: var(--card-border-radius);
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: background-color 0.3s, border 0.3s; /* Transición suave para cambios de estilo */
-}
-
-/* Tamaños fijos para las tarjetas */
-.card--square {
-  grid-column: span 1;
-  grid-row: span 1;
-  width: 200px; /* Ancho fijo */
-  height: 200px; /* Alto fijo */
-}
-
-.card--wide {
-  grid-column: span 2;
-  grid-row: span 1;
-  width: calc((400px + 20px) - 1px); /* Ancho fijo más el gap menos 1px del borde */
-  height: 200px; /* Alto fijo */
-}
-
-.card--tall {
-  grid-column: span 1;
-  grid-row: span 2;
-  width: 200px; /* Ancho fijo */
-  height: calc((400px + 20px) - 1px); /* Alto fijo más el gap menos 1px del borde */
-}
-
-.card--big {
-  grid-column: span 2;
-  grid-row: span 2;
-  width: calc((400px + 20px) - 1px); /* Ancho fijo más el gap menos 1px del borde */
-  height: calc((400px + 20px) - 1px); /* Alto fijo más el gap menos 1px del borde */
-}
-
-/* Estilos para mobile */
 @media screen and (max-width: 768px) {
-  .container {
-    /* Ajustes para el contenedor principal */
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px; /* Agrega padding a los lados para evitar que el contenido toque los bordes */
-  }
 
-  .sideBar {
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    transition: all 0.3s;
-  }
-
-  .resp {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .menu-hamburger {
-    display: block;
-    z-index: 2;
-    /* Asegura que el menú hamburguesa esté por encima del menú desplegable */
-  }
-
-  .menu-container {
-    display: none;
-    /* Mantén el menú oculto inicialmente */
-    width: 100%;
-    /* El menú debe ocupar el ancho completo del sidebar */
-    background: var(--background-color);
-    /* Fondo del menú */
-    position: static;
-    /* Posición estática para mover el contenido hacia abajo */
-    order: 2;
-    /* Asegura que el menú se muestra después de la cabecera */
-    padding-top: 0;
-    /* Elimina el padding superior */
-    padding-bottom: 0;
-    /* Elimina el padding inferior */
-  }
-
-  .sideBar.expanded .menu-container {
-    display: flex;
-    /* Muestra el menú cuando el sidebar está expandido */
-    flex-direction: column;
-    /* Orientación vertical de los elementos del menú */
-  }
-
-    .mainContent {
-      -webkit-column-count: 2;
-      -moz-column-count: 2;
-      column-count: 2;
-      column-gap: 10px;
-      width: 100%; /* Asegura que el mainContent ocupa todo el ancho */
+    body {
+        padding-top: 40px; /* Añade espacio en la parte superior para el logo */
     }
-  
-    .card {
-      break-inside: avoid-column; /* Evita que las tarjetas se rompan entre columnas */
-      width: 100%; /* Las tarjetas ocuparán todo el ancho de la columna */
-      margin-bottom: 10px; /* Espacio debajo de cada tarjeta */
-    }
-  
-    .card--wide {
-      width: 100%; /* Las tarjetas anchas ocuparán todo el ancho de dos columnas */
-      margin-bottom: 10px; /* Espacio debajo de cada tarjeta */
-    }
-  
-    .card--square,
-    .card--tall,
-    .card--big {
-      width: auto;
-      height: auto;
-      grid-column-end: auto;
-      grid-row-end: auto;
-    }
-    
-    .card--wide, .card--big {
-      /* Ajusta para que las tarjetas anchas y grandes ocupen dos columnas */
-      -webkit-column-span: all; /* Chrome, Safari, Opera */
-      column-span: all; /* Firefox, IE, y otros navegadores */
-    }
-  
-    .card--tall {
-      /* Asegura que las tarjetas verticales mantengan la proporción */
-      height: calc(100vw / 2 - 10px); /* 50% del ancho de la ventana gráfica menos el column-gap */
-    }
-  }
 
-/*--FOOTER--*/
-footer {
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--background-color); /* Color de fondo del footer */
-  padding: 20px; /* Ajusta el padding del footer */
+    .menu-container {
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.1); /* Fondo blanco con baja opacidad */
+        backdrop-filter: blur(5px); /* Desenfoque aplicado al área detrás del contenedor */
+        -webkit-backdrop-filter: blur(5px); /* Para soporte en Safari */
+        border: 1px solid rgba(255, 255, 255, 0.25); /* Borde con transparencia */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        margin: 10px;
+        position: fixed;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+    }
+
+    .logo {
+        display: block; /* Muestra el logo */
+        position: fixed; /* Fija la posición del logo */
+        top: 10px; /* Posición desde la parte superior */
+        left: 50%; /* Centra el logo horizontalmente */
+        transform: translateX(-50%); /* Ajuste fino para centrar exactamente el logo */
+        z-index: 2; /* Asegura que el logo esté por encima del menú */
+    }
+
+    .menu li a {
+        font-size: 10px; /* Ajusta el tamaño de la fuente si es necesario */
+    }
 }
+
